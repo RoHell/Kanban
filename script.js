@@ -1,11 +1,12 @@
 $(function() {
 
 	function randomString() {
-		var chars = "0123456789abcdefghiklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXTZ";
-		var str = "";
+		var chars = '0123456789abcdefghiklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXTZ';
+		var str = '';
 		for (var i = 0; i < 10; i++) {
 			str += chars[Math.floor(Math.random() * chars.length)];
 		}
+		console.log(str); //::::::::::::::
 		return str;
 	}
 
@@ -24,7 +25,7 @@ $(function() {
 			var $columnAddCard = $('<button>').addClass('add-card').text('Dodaj kartę');
 
 			$columnDelete.click(function() {
-				self.deleteColumn();
+				self.removeColumn();
 			});
 
 			$columnAddCard.click(function() {
@@ -36,6 +37,7 @@ $(function() {
 					.append($columnAddCard)
 					.append($columnList);
 
+			console.log('column', $column); //::::::::::::::
 			return $column;
 		}
 	}
@@ -44,12 +46,15 @@ $(function() {
 		addCard: function(card) {
 			this.$element.children('ul').append(card.$element);
 		}
+	};
+
+	Column.prototype = {	
 		removeColumn: function() {
 			this.$element.remove();
 		}
 	};
 
-	function Card() {
+	function Card(description) {
 		var self = this;
 
 		this.id = randomString();
@@ -66,8 +71,9 @@ $(function() {
 			});
 
 			$card.append($cardDelete)
-					.append($cardDelete);
+				.append($cardDescription);
 
+			console.log('$card', $card); //::::::::::::::
 			return $card;
 		}
 	}
@@ -85,7 +91,7 @@ $(function() {
 			initSortable();
 		},
 		element: $('#board .column-container')
-	}
+	};
 
 	function initSortable() {
 		$('.card-list').sortable({
@@ -99,22 +105,22 @@ $(function() {
 		var column = new Column(name);
 		board.addColumn(column);
 	});
-
-	// TWORZENIE KOLUMN
-	var todoColumn = new Column('Do zrobienia');
-	var doingColumn = new Column('W trakcie');
-	var doneColumn = new Column('Skończone');
-
-	// DODAWANIE KOLUMN DO TABLICY
-	board.addColumn(todoColumn);
-	board.addColumn(doingColumn);
-	board.addColumn(doneColumn);
-
-	// TWORZENIE NOWYCH EGZEMPLARZY KART
-	var card1 = new Card('Nowe zadanie');
-	var card2 = new Card('Stworzyc tablice kanban');
-
-	// DODAWANIE KART DO KOLUMN
-	todoColumn.addCard(card1);
-	doingColumn.addCard(card2);
 });
+
+// TWORZENIE KOLUMN
+var todoColumn = new Column('Do zrobienia');
+var doingColumn = new Column('W trakcie');
+var doneColumn = new Column('Skończone');
+
+// DODAWANIE KOLUMN DO TABLICY
+board.addColumn(todoColumn);
+board.addColumn(doingColumn);
+board.addColumn(doneColumn);
+
+// TWORZENIE NOWYCH EGZEMPLARZY KART
+var card1 = new Card('Nowe zadanie');
+var card2 = new Card('Stworzyc tablice kanban');
+
+// DODAWANIE KART DO KOLUMN
+todoColumn.addCard(card1);
+doingColumn.addCard(card2);
