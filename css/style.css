@@ -15,11 +15,10 @@ h1 {
 .column {
   position: relative;
   display: inline-block;
-  background-color: #ddd;
-  width: 300px;
-  border: 1px solid #000;
-  top: 100px;
-  
+  width: 200px;
+  border: 1px solid transparent;
+  top: 50px;
+  float: left;
 }
 
 .column-title {
@@ -32,7 +31,18 @@ h1 {
 }
 
 .card {
-  background-color: red;
-  margin: 5px;
-  margin: 2px;
+  background-color: rgba(0,0,0,.3);
+  padding: 10px;
+  margin-top: 2px;
+}
+
+.btn-delete {
+  color: #333;
+  background-color: rgba(0,0,0,0);
+  border-width: 1;
+  cursor: pointer;
+}
+
+.btn-delete:hover {
+  color: #000;
 }

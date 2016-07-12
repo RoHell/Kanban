@@ -104,21 +104,21 @@ $(function() {
 		board.addColumn(column);
 	});
 
-  // TWORZENIE KOLUMN
-  var todoColumn = new Column('Do zrobienia');
-  var doingColumn = new Column('W trakcie');
-  var doneColumn = new Column('Skończone');
+	// TWORZENIE KOLUMN
+	var todoColumn = new Column('Do zrobienia');
+	var doingColumn = new Column('W trakcie');
+	var doneColumn = new Column('Skończone');
 
-  // DODAWANIE KOLUMN DO TABLICY
-  board.addColumn(todoColumn);
-  board.addColumn(doingColumn);
-  board.addColumn(doneColumn);
+	// DODAWANIE KOLUMN DO TABLICY
+	board.addColumn(todoColumn);
+	board.addColumn(doingColumn);
+	board.addColumn(doneColumn);
 
-  // TWORZENIE NOWYCH EGZEMPLARZY KART
-  var card1 = new Card('Nowe zadanie');
-  var card2 = new Card('Stworzyc tablice kanban');
+	// // TWORZENIE NOWYCH EGZEMPLARZY KART
+	// var card1 = new Card('Nowe zadanie');
+	// var card2 = new Card('Stworzyc tablice kanban');
 
-  // DODAWANIE KART DO KOLUMN
-  todoColumn.addCard(card1);
-  doingColumn.addCard(card2);
+	// DODAWANIE KART DO KOLUMN
+	todoColumn.addCard(card1);
+	doingColumn.addCard(card2);
 });
