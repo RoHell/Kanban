@@ -21,23 +21,27 @@ $(function() {
 			var $column = $('<div>').addClass('column');
 			var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
 			var $columnList = $('<ul>').addClass('column-list');
-			var $columnDelete = $('<button>').addClass('btn-delete').text('x');
-			var $columnAddCard = $('<button>').addClass('add-card').text('Dodaj kartę');
+			// var $columnDelete = $('<button>').addClass('btn-delete').text('x');
+			// var $columnAddCard = $('<button>').addClass('add-card').text('Dodaj kartę');
+			var $icnRemove = $('<span>').addClass('glyphicon glyphicon-remove'); // RoHell
+			var $btnAdd = $('<button>').text('Add Card').addClass('btn-add'); //RoHell
+			var $icnAdd = $('<span>').addClass('glyphicon glyphicon-plus').css('float', 'left'); // RoHell
 
-			$columnDelete.click(function() {
+			$icnRemove.click(function() {
 				self.removeColumn();
 			});
 
-			$columnAddCard.click(function() {
+			$btnAdd.click(function() {
 				self.addCard(new Card(prompt('Wpisz nazwę karty')));
 			});
 
+			$btnAdd.append($icnAdd);
+
 			$column.append($columnTitle)
-					.append($columnDelete)
-					.append($columnAddCard)
+					.append($icnRemove)
+					.append($btnAdd)
 					.append($columnList);
 
-			console.log('column', $column); //::::::::::::::
 			return $column;
 		}
 	}
@@ -62,16 +66,17 @@ $(function() {
 		function createCard() {
 			var $card = $('<li>').addClass('card');
 			var $cardDescription = $('<p>').addClass('card-description').text(self.description);
-			var $cardDelete = $('<button>').addClass('btn-delete').text('x');
+			// var $cardDelete = $('<button>').addClass('btn-delete').text('x');
 
-			$cardDelete.click(function() {
+			var $icnRemove = $('<span>').addClass('glyphicon glyphicon-remove'); // RoHell
+
+			$icnRemove.click(function() {
 				self.removeCard();
 			});
 
-			$card.append($cardDelete)
+			$card.append($icnRemove)
 				.append($cardDescription);
 
-			console.log('$card', $card); //::::::::::::::
 			return $card;
 		}
 	}
@@ -85,16 +90,16 @@ $(function() {
 	var board = {
 		name: 'Tablica Kanban',
 		addColumn: function(column) {
-			this.element.append(column.$element);
+			this.$element.append(column.$element);
 			initSortable();
 		},
-		element: $('#board .column-container')
+		$element: $('#board .column-container')
 	};
 
 	function initSortable() {
-		$('.card-list').sortable({
-			connectWith: '.card-list',
-			placeholder: '.card-placeholder'
+		$('.column-list').sortable({
+			connectWith: '.column-list',
+			placeholder: 'card-placeholder'
 		}).disableSelection();
 	}
 
@@ -105,13 +110,15 @@ $(function() {
 	});
 
 	// TWORZENIE KOLUMN
-	var todoColumn = new Column('Do zrobienia');
-	var doingColumn = new Column('W trakcie');
-	var doneColumn = new Column('Skończone');
+	var todoColumn = new Column('To Do');
+	var doingColumn = new Column('In Progress');
+	var verifyColumn = new Column('Verify');
+	var doneColumn = new Column('Done');
 
 	// DODAWANIE KOLUMN DO TABLICY
 	board.addColumn(todoColumn);
 	board.addColumn(doingColumn);
+	board.addColumn(verifyColumn);
 	board.addColumn(doneColumn);
 
 	// // TWORZENIE NOWYCH EGZEMPLARZY KART
