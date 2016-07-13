@@ -1,0 +1,43 @@
+@import 'https://fonts.googleapis.com/css?family=Noto+Sans';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.column {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  border: 1px solid transparent;
+  top: 50px;
+  float: left;
+}
+
+.column-title {
+  text-align: center;
+}
+
+.column-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.card {
+  background-color: rgba(0,0,0,.3);
+  padding: 10px;
+  margin-top: 2px;
+}
+
+
+
+.btn-delete:hover {
+  color: #000;
+}
