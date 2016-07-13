@@ -6,7 +6,6 @@ $(function() {
 		for (var i = 0; i < 10; i++) {
 			str += chars[Math.floor(Math.random() * chars.length)];
 		}
-		console.log(str); //::::::::::::::
 		return str;
 	}
 
@@ -25,14 +24,14 @@ $(function() {
 			// var $columnAddCard = $('<button>').addClass('add-card').text('Dodaj kartę');
 			var $icnRemove = $('<span>').addClass('glyphicon glyphicon-remove'); // RoHell
 			var $btnAdd = $('<button>').text('Add Card').addClass('btn-add'); //RoHell
-			var $icnAdd = $('<span>').addClass('glyphicon glyphicon-plus').css('float', 'left'); // RoHell
+			var $icnAdd = $('<span>').addClass('glyphicon glyphicon-plus'); // RoHell
 
 			$icnRemove.click(function() {
 				self.removeColumn();
 			});
 
 			$btnAdd.click(function() {
-				self.addCard(new Card(prompt('Wpisz nazwę karty')));
+				self.addCard(new Card(prompt('Wpisz nazwę karty', '... Empty Card...')));
 			});
 
 			$btnAdd.append($icnAdd);
@@ -104,7 +103,7 @@ $(function() {
 	}
 
 	$('.create-column').click(function() {
-		var name = prompt('Wpisz nazwę kolumny');
+		var name = prompt('Wpisz nazwę kolumny', 'Task');
 		var column = new Column(name);
 		board.addColumn(column);
 	});
@@ -121,11 +120,19 @@ $(function() {
 	board.addColumn(verifyColumn);
 	board.addColumn(doneColumn);
 
-	// // TWORZENIE NOWYCH EGZEMPLARZY KART
-	// var card1 = new Card('Nowe zadanie');
-	// var card2 = new Card('Stworzyc tablice kanban');
+	// TWORZENIE NOWYCH EGZEMPLARZY KART
+	var card1 = new Card('Swobodnie kodować w JS i jQuery');
+	var card2 = new Card('Swobodnie obsługiwać Grunt i Git');
+	var card3 = new Card('Wykonać aplikację Kamień Nożyczki Papier');
+	var card4 = new Card('Wykonać aplikację Kanban');
+	var card5 = new Card('Znaleźć pracę jako Front-End Developer');
+	var card6 = new Card('Nauczyć się React\'a');
 
-	// DODAWANIE KART DO KOLUMN
-	todoColumn.addCard(card1);
+	//DODAWANIE KART DO KOLUMN
+	doingColumn.addCard(card1);
 	doingColumn.addCard(card2);
+	todoColumn.addCard(card5);
+	doneColumn.addCard(card3);
+	verifyColumn.addCard(card4);
+	todoColumn.addCard(card6);
 });
