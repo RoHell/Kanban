@@ -17,21 +17,19 @@ h1 {
 
 .column {
   position: relative;
-  float: left;
-  width: 200px;
-  min-height: 100px;
+  min-height: 50px;
   top: 50px;
   color: #8ED0EA;
-  margin: 13px 4px 0;
   transition: .3s; }
   .column:hover {
     color: #fff; }
   .column .glyphicon-remove {
     position: absolute;
-    right: 0;
+    right: 15px;
     cursor: pointer;
     color: #006A94;
-    padding: 2px; }
+    padding: 2px;
+    font-size: 12px; }
     .column .glyphicon-remove:hover {
       color: #fff; }
   .column .btn-add {
@@ -64,11 +62,10 @@ h1 {
     border: 3px solid #004966; }
 
 .card {
-  display: flex;
   position: relative;
   background-color: #00A4E5;
-  padding: 15px;
-  margin-top: 10px;
+  padding: 12px;
+  margin-top: 5px;
   box-shadow: 0 2px 2px #333;
   transition: .1s;
   cursor: move; }
@@ -83,7 +80,8 @@ h1 {
     right: 0;
     cursor: pointer;
     color: #006A94;
-    padding: 2px; }
+    padding: 2px;
+    font-size: 12px; }
     .card .glyphicon-remove:hover {
       color: #fff; }
 
@@ -99,18 +97,27 @@ h1 {
   text-align: center;
   line-height: 45px;
   background-color: #004966;
-  margin: 0; }
+  margin: 0;
+  font-size: 25px; }
 
 .column-list {
   list-style-type: none;
   padding-left: 0;
-  margin-top: 15px;
-  min-height: 100vh; }
+  margin-top: 5px;
+  min-height: 50vh; }
 
 .card-placeholder {
   height: 80px;
-  margin-top: 15px;
+  margin-top: 5px;
   background-color: #00A4E5;
   opacity: .3; }
+
+.card-description {
+  font-size: 14px; }
+
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  .column {
+    width: 50%;
+    float: left; } }
 
 /*# sourceMappingURL=style.css.map */

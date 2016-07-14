@@ -24,22 +24,20 @@ h1 {
 
 .column {
   position: relative;
-  float: left;
-  width: 200px;
-  min-height: 100px;
+  min-height: 50px;
   top: 50px;
   color: $bg-clr;
-  margin: 13px 4px 0;
   transition: .3s;
   &:hover {
     color: $white-clr;
   }
   .glyphicon-remove {
     position: absolute;
-    right: 0;
+    right: 15px;
     cursor: pointer;
     color: $dark-clr;
     padding: 2px;
+    font-size: 12px;
     &:hover {
       color: $white-clr;
     }
@@ -80,11 +78,10 @@ h1 {
 }
 
 .card {
-  display: flex;
   position: relative;
   background-color: $card-clr;
-  padding: 15px;
-  margin-top: 10px;
+  padding: 12px;
+  margin-top: 5px;
   box-shadow: 0 2px 2px #333;
   transition: .1s;
   cursor: move;
@@ -134,6 +131,7 @@ h1 {
     cursor: pointer;
     color: $dark-clr;
     padding: 2px;
+    font-size: 12px;
     &:hover {
       color: $white-clr;
     }
@@ -154,18 +152,30 @@ h1 {
   line-height: 45px;
   background-color: $darker-clr;
   margin: 0;
+  font-size: 25px;
 }
 
 .column-list {
   list-style-type: none;
   padding-left: 0;
-  margin-top: 15px;
-  min-height: 100vh;
+  margin-top: 5px;
+  min-height: 50vh;
 }
 
 .card-placeholder {
   height: 80px;
-  margin-top: 15px;
+  margin-top: 5px;
   background-color: $card-clr;
   opacity: .3;
+}
+
+.card-description {
+  font-size: 14px;
+}
+
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  .column {
+    width: 50%;
+    float: left;
+  }
 }

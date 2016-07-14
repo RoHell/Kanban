@@ -17,7 +17,8 @@ $(function() {
 		this.$element = createColumn();
 
 		function createColumn() {
-			var $column = $('<div>').addClass('column');
+			var $row = $('<div>').addClass('row')
+			var $column = $('<div>').addClass('column col-s-2 col-sm-4 col-md-3 col-lg-2');
 			var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
 			var $columnList = $('<ul>').addClass('column-list');
 			// var $columnDelete = $('<button>').addClass('btn-delete').text('x');
@@ -36,6 +37,7 @@ $(function() {
 
 			$btnAdd.append($icnAdd);
 
+			$row.append($column);
 			$column.append($columnTitle)
 					.append($icnRemove)
 					.append($btnAdd)
