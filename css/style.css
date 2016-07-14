@@ -1,3 +1,8 @@
+.card:hover:before, .card:hover:after {
+  box-shadow: 0 3px 4px #000;
+  opacity: .4;
+  height: 5px; }
+
 * {
   box-sizing: border-box; }
 
@@ -75,41 +80,31 @@ h1 {
     position: absolute;
     content: '';
     bottom: 0;
-    right: 3px;
     width: 180px;
     height: 3px;
     box-shadow: 0 2px 2px #000;
     opacity: .5;
+    z-index: -10;
+    right: 3px;
     transform: rotateZ(1.3deg);
-    transform-origin: right bottom;
-    z-index: -1;
-    transition: .3s; }
+    transform-origin: right bottom; }
   .card:after {
     position: absolute;
     content: '';
     bottom: 0;
-    left: 3px;
     width: 180px;
     height: 3px;
     box-shadow: 0 2px 2px #000;
     opacity: .5;
+    z-index: -10;
+    left: 3px;
     transform: rotateZ(-1.3deg);
-    transform-origin: left bottom;
-    z-index: -1;
-    transition: .3s; }
-  .card:hover:before {
-    height: 5px;
-    box-shadow: 0 3px 4px #000;
-    opacity: .4; }
-  .card:hover:after {
-    height: 5px;
-    box-shadow: 0 3px 4px #000;
-    opacity: .4; }
+    transform-origin: left bottom; }
   .card .glyphicon-remove {
     position: absolute;
     right: 0;
     cursor: pointer;
-    color: #004966;
+    color: #006A94;
     padding: 2px; }
     .card .glyphicon-remove:hover {
       color: #fff; }
@@ -135,7 +130,9 @@ h1 {
   min-height: 100vh; }
 
 .card-placeholder {
-  height: 50px;
-  background-color: #B9BFC2; }
+  height: 80px;
+  margin-top: 8px;
+  background-color: #00A4E5;
+  opacity: .3; }
 
 /*# sourceMappingURL=style.css.map */

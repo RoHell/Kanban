@@ -1,0 +1,15 @@
+%card-selector {
+	position: absolute;
+	content: '';
+	bottom: 0;
+	width: 180px;
+	box-shadow: 0 2px 2px #000;
+	opacity: .5;
+	z-index: -1;
+}
+
+%card-selector-hover {	
+	box-shadow: 0 3px 4px #000;
+	opacity: .4;
+	height: 5px;
+}

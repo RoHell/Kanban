@@ -45,14 +45,12 @@ $(function() {
 		}
 	}
 
-	Column.prototype = {
-		addCard: function(card) {
-			this.$element.children('ul').append(card.$element);
-		},
+	Column.prototype.addCard = function(card) {
+		this.$element.children('ul').append(card.$element);
+	};
 
-		removeColumn: function() {
-			this.$element.remove();
-		}
+	Column.prototype.removeColumn = function() {
+		this.$element.remove();
 	};
 
 	function Card(description) {
@@ -80,10 +78,8 @@ $(function() {
 		}
 	}
 
-	Card.prototype = {
-		removeCard: function() {
-			this.$element.remove();
-		}
+	Card.prototype.removeCard = function() {
+		this.$element.remove();
 	};
 
 	var board = {

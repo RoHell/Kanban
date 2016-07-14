@@ -1,4 +1,5 @@
 @import "variables";
+@import "partials";
 
 * {
   box-sizing: border-box;
@@ -81,10 +82,10 @@ h1 {
 
 .card {
   position: relative;
-  background-color: $blue-clr;
+  background-color: $card-clr;
   padding: 10px;
   margin-top: 5px;
-
+  // transition: .1s;
   cursor: move;
   p {
     color: $white-clr;    
@@ -93,43 +94,36 @@ h1 {
     position: absolute;
     content: '';
     bottom: 0;
-    right: 3px;
     width: 180px;
     height: 3px;
     box-shadow: 0 2px 2px #000;
     opacity: .5;
+    z-index: -10;
+    right: 3px;
     transform: rotateZ(1.3deg);
     transform-origin: right bottom;
-
-    z-index: -1;
-    transition: .3s;
   }
   &:after {
     position: absolute;
     content: '';
     bottom: 0;
-    left: 3px;
     width: 180px;
     height: 3px;
     box-shadow: 0 2px 2px #000;
     opacity: .5;
+    z-index: -10;
+    left: 3px;
     transform: rotateZ(-1.3deg);
     transform-origin: left bottom;
-
-    z-index: -1;
-    transition: .3s;
   }
   &:hover {
-    // transform: scale(1.01);
+    // transform: rotateZ(-1deg) scale(1.01);
+    // transform-origin: top right;
     &:before {
-      height: 5px;
-      box-shadow: 0 3px 4px #000;
-      opacity: .4;
+      @extend %card-selector-hover;
     }
     &:after {
-      height: 5px;
-      box-shadow: 0 3px 4px #000;
-      opacity: .4; 
+      @extend %card-selector-hover;
     }
   }
   .glyphicon-remove {
@@ -137,7 +131,7 @@ h1 {
     right: 0;
     cursor: pointer;
 
-    color: $darker-clr;
+    color: $dark-clr;
     padding: 2px;
     &:hover {
       color: $white-clr;
@@ -169,7 +163,8 @@ h1 {
 }
 
 .card-placeholder {
-
-  height: 50px;
-  background-color: $placeholder-clr;
+  height: 80px;
+  margin-top: 8px;
+  background-color: $card-clr;
+  opacity: .3;
 }
