@@ -1,0 +1,154 @@
+@import "variables";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $main-font;
+  background-color: $bg-clr;
+}
+
+h1 {
+  text-align: center;
+  font-family: $title-font;
+  color: $darker-clr;
+}
+
+.board p {
+  text-align: center;
+  font-size: 20px;
+  color: $darker-clr;
+}
+
+.column {
+  position: relative;
+  float: left;
+  width: 200px;
+  top: 50px;
+  height: 50vh;
+  color: $bg-clr;
+  margin: 13px 4px 0;
+  transition: .3s;
+  &:hover {
+    color: $white-clr;
+  }
+  .glyphicon-remove {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    color: $dark-clr;
+    padding: 2px;
+    &:hover {
+      color: $white-clr;
+    }
+  }
+  .btn-add {
+    background-color: $dark-clr;
+    color: $white-clr;
+    width: 100%;
+    height: 30px;
+    border: 3px solid $darker-clr;
+    margin-top: 0;
+    text-align: left;
+    transition: .3s;
+    &:hover {
+      text-shadow: $text-shadow;
+      .glyphicon-plus {
+        text-shadow: $text-shadow;
+      }
+    }
+  }   
+}
+
+
+.create-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $dark-clr;
+  color: $white-clr;
+  border: none;
+  padding:10px;
+  margin: 0 auto;
+  border: 3px solid transparent;
+  transition: .3s;
+  &:hover {
+    text-shadow: $text-shadow;
+    border: 3px solid $darker-clr;
+  }
+}
+
+.card {
+  position: relative;
+  background-color: $blue-clr;
+  padding: 10px;
+  margin-top: 5px;
+  p {
+    color: $white-clr;    
+  }
+  &:before {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    right: 3px;
+    width: 180px;
+    height: 3px;
+    box-shadow: 0 2px 2px #000;
+    opacity: .5;
+    transform: rotateZ(1.3deg);
+    transform-origin: right bottom;
+    z-index: -1;    
+  }
+  &:after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 3px;
+    width: 180px;
+    height: 3px;
+    box-shadow: 0 2px 2px #000;
+    opacity: .5;
+    transform: rotateZ(-1.3deg);
+    transform-origin: left bottom;
+    z-index: -1;    
+  }
+  .glyphicon-remove {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    color: $dark-clr;
+    padding: 2px;
+    &:hover {
+      color: $white-clr;
+    }
+  }
+}
+
+.glyphicon-plus {
+  font-size: 18px;
+  line-height: 18px;
+  margin-right: 10px;
+  float: left;
+  color: $white-clr;
+  transition: .2s;
+}
+
+.column-title  {
+  text-align: center;
+  line-height: 45px;
+  background-color: $darker-clr;
+  margin: 0;
+}
+
+.column-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 8px;
+  min-height: 100vh;
+}
+
+.card-placeholder {
+  height: auto;
+  background-color: $placeholder-clr;
+}
