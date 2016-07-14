@@ -1,48 +1,141 @@
-@import 'https://fonts.googleapis.com/css?family=Noto+Sans';
-
 * {
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 body {
-  font-family: 'Noto Sans', sans-serif;
-}
+  font-family: "Noto Sans", sans-serif;
+  background-color: #8ED0EA; }
 
 h1 {
   text-align: center;
-}
+  font-family: "Bungee", cursive;
+  color: #004966; }
+
+.board p {
+  text-align: center;
+  font-size: 20px;
+  color: #004966; }
 
 .column {
   position: relative;
-  display: inline-block;
-  width: 200px;
-  border: 1px solid transparent;
-  top: 50px;
   float: left;
-}
+  width: 200px;
+  top: 50px;
+  height: 50vh;
+  color: #8ED0EA;
+  margin: 13px 4px 0;
+  transition: .3s; }
+  .column:hover {
+    color: #fff; }
+  .column .glyphicon-remove {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    color: #006A94;
+    padding: 2px; }
+    .column .glyphicon-remove:hover {
+      color: #fff; }
+  .column .btn-add {
+    background-color: #006A94;
+    color: #fff;
+    width: 100%;
+    height: 30px;
+    border: 3px solid #004966;
+    margin-top: 0;
+    text-align: left;
+    transition: .3s; }
+    .column .btn-add:hover {
+      text-shadow: 1px 1px 1px #000; }
+      .column .btn-add:hover .glyphicon-plus {
+        text-shadow: 1px 1px 1px #000; }
+
+.create-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #006A94;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  margin: 0 auto;
+  border: 3px solid transparent;
+  transition: .3s; }
+  .create-column:hover {
+    text-shadow: 1px 1px 1px #000;
+    border: 3px solid #004966; }
+
+.card {
+  position: relative;
+  background-color: #00A4E5;
+  padding: 10px;
+  margin-top: 5px;
+  cursor: move; }
+  .card p {
+    color: #fff; }
+  .card:before {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    right: 3px;
+    width: 180px;
+    height: 3px;
+    box-shadow: 0 2px 2px #000;
+    opacity: .5;
+    transform: rotateZ(1.3deg);
+    transform-origin: right bottom;
+    z-index: -1;
+    transition: .3s; }
+  .card:after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 3px;
+    width: 180px;
+    height: 3px;
+    box-shadow: 0 2px 2px #000;
+    opacity: .5;
+    transform: rotateZ(-1.3deg);
+    transform-origin: left bottom;
+    z-index: -1;
+    transition: .3s; }
+  .card:hover:before {
+    height: 5px;
+    box-shadow: 0 3px 4px #000;
+    opacity: .4; }
+  .card:hover:after {
+    height: 5px;
+    box-shadow: 0 3px 4px #000;
+    opacity: .4; }
+  .card .glyphicon-remove {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    color: #004966;
+    padding: 2px; }
+    .card .glyphicon-remove:hover {
+      color: #fff; }
+
+.glyphicon-plus {
+  font-size: 18px;
+  line-height: 18px;
+  margin-right: 10px;
+  float: left;
+  color: #fff;
+  transition: .2s; }
 
 .column-title {
   text-align: center;
-}
+  line-height: 45px;
+  background-color: #004966;
+  margin: 0; }
 
 .column-list {
   list-style-type: none;
   padding-left: 0;
-}
+  margin-top: 8px;
+  min-height: 100vh; }
 
-.card {
-  background-color: rgba(0,0,0,.3);
-  padding: 10px;
-  margin-top: 2px;
-}
+.card-placeholder {
+  height: 50px;
+  background-color: #B9BFC2; }
 
-.btn-delete {
-  color: #333;
-  background-color: rgba(0,0,0,0);
-  border-width: 1;
-  cursor: pointer;
-}
-
-.btn-delete:hover {
-  color: #000;
-}
+/*# sourceMappingURL=style.css.map */

@@ -21,6 +21,7 @@
   "homepage": "https://github.com/RoHell/Kodilla-OOP-trello#readme",
   "devDependencies": {
     "grunt": "^1.0.1",
+    "grunt-browser-sync": "^2.2.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-sass": "^1.2.0"
   }

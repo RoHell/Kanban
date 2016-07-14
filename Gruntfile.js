@@ -7,7 +7,7 @@ module.exports = function(grunt) {
   			},
 	  		dist: {
 	    		files: {
-	          'css/style.css': 'scss/*.scss'
+	          'css/style.css': 'scss/style.scss'
 	    		}
 	  		}
     	},
@@ -28,7 +28,9 @@ module.exports = function(grunt) {
 	        	bsFiles: {
 	          		src : [
 	            		'css/*.css',
-	            		'*.html'
+	            		'*.html',
+	            		'js/*.js',
+	            		'scss/*.scss'
 	          		]
 	        	},
 	        	options: {

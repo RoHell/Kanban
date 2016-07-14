@@ -84,6 +84,8 @@ h1 {
   background-color: $blue-clr;
   padding: 10px;
   margin-top: 5px;
+
+  cursor: move;
   p {
     color: $white-clr;    
   }
@@ -98,7 +100,9 @@ h1 {
     opacity: .5;
     transform: rotateZ(1.3deg);
     transform-origin: right bottom;
-    z-index: -1;    
+
+    z-index: -1;
+    transition: .3s;
   }
   &:after {
     position: absolute;
@@ -111,13 +115,29 @@ h1 {
     opacity: .5;
     transform: rotateZ(-1.3deg);
     transform-origin: left bottom;
-    z-index: -1;    
+
+    z-index: -1;
+    transition: .3s;
+  }
+  &:hover {
+    // transform: scale(1.01);
+    &:before {
+      height: 5px;
+      box-shadow: 0 3px 4px #000;
+      opacity: .4;
+    }
+    &:after {
+      height: 5px;
+      box-shadow: 0 3px 4px #000;
+      opacity: .4; 
+    }
   }
   .glyphicon-remove {
     position: absolute;
     right: 0;
     cursor: pointer;
-    color: $dark-clr;
+
+    color: $darker-clr;
     padding: 2px;
     &:hover {
       color: $white-clr;
@@ -149,6 +169,7 @@ h1 {
 }
 
 .card-placeholder {
-  height: auto;
+
+  height: 50px;
   background-color: $placeholder-clr;
 }

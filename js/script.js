@@ -1,12 +1,11 @@
 $(function() {
 
 	function randomString() {
-		var chars = '0123456789abcdefghiklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXTZ';
+		var chars = '0123456789abcdefghiklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXTZ'.split();
 		var str = '';
 		for (var i = 0; i < 10; i++) {
 			str += chars[Math.floor(Math.random() * chars.length)];
 		}
-		console.log(str); //::::::::::::::
 		return str;
 	}
 
@@ -21,23 +20,27 @@ $(function() {
 			var $column = $('<div>').addClass('column');
 			var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
 			var $columnList = $('<ul>').addClass('column-list');
-			var $columnDelete = $('<button>').addClass('btn-delete').text('x');
-			var $columnAddCard = $('<button>').addClass('add-card').text('Dodaj kartę');
+			// var $columnDelete = $('<button>').addClass('btn-delete').text('x');
+			// var $columnAddCard = $('<button>').addClass('add-card').text('Dodaj kartę');
+			var $icnRemove = $('<span>').addClass('glyphicon glyphicon-remove'); // RoHell
+			var $btnAdd = $('<button>').text('Add Card').addClass('btn-add'); //RoHell
+			var $icnAdd = $('<span>').addClass('glyphicon glyphicon-plus'); // RoHell
 
-			$columnDelete.click(function() {
+			$icnRemove.click(function() {
 				self.removeColumn();
 			});
 
-			$columnAddCard.click(function() {
-				self.addCard(new Card(prompt('Wpisz nazwę karty')));
+			$btnAdd.click(function() {
+				self.addCard(new Card(prompt('Wpisz nazwę karty', '... Empty Card...')));
 			});
 
+			$btnAdd.append($icnAdd);
+
 			$column.append($columnTitle)
-					.append($columnDelete)
-					.append($columnAddCard)
+					.append($icnRemove)
+					.append($btnAdd)
 					.append($columnList);
 
-			console.log('column', $column); //::::::::::::::
 			return $column;
 		}
 	}
@@ -62,16 +65,17 @@ $(function() {
 		function createCard() {
 			var $card = $('<li>').addClass('card');
 			var $cardDescription = $('<p>').addClass('card-description').text(self.description);
-			var $cardDelete = $('<button>').addClass('btn-delete').text('x');
+			// var $cardDelete = $('<button>').addClass('btn-delete').text('x');
 
-			$cardDelete.click(function() {
+			var $icnRemove = $('<span>').addClass('glyphicon glyphicon-remove'); // RoHell
+
+			$icnRemove.click(function() {
 				self.removeCard();
 			});
 
-			$card.append($cardDelete)
+			$card.append($icnRemove)
 				.append($cardDescription);
 
-			console.log('$card', $card); //::::::::::::::
 			return $card;
 		}
 	}
@@ -85,40 +89,50 @@ $(function() {
 	var board = {
 		name: 'Tablica Kanban',
 		addColumn: function(column) {
-			this.element.append(column.$element);
+			this.$element.append(column.$element);
 			initSortable();
 		},
-		element: $('#board .column-container')
+		$element: $('#board .column-container')
 	};
 
 	function initSortable() {
-		$('.card-list').sortable({
-			connectWith: '.card-list',
-			placeholder: '.card-placeholder'
+		$('.column-list').sortable({
+			connectWith: '.column-list',
+			placeholder: 'card-placeholder'
 		}).disableSelection();
 	}
 
 	$('.create-column').click(function() {
-		var name = prompt('Wpisz nazwę kolumny');
+		var name = prompt('Wpisz nazwę kolumny', 'Task');
 		var column = new Column(name);
 		board.addColumn(column);
 	});
 
 	// TWORZENIE KOLUMN
-	var todoColumn = new Column('Do zrobienia');
-	var doingColumn = new Column('W trakcie');
-	var doneColumn = new Column('Skończone');
+	var todoColumn = new Column('To Do');
+	var doingColumn = new Column('In Progress');
+	var verifyColumn = new Column('Verify');
+	var doneColumn = new Column('Done');
 
 	// DODAWANIE KOLUMN DO TABLICY
 	board.addColumn(todoColumn);
 	board.addColumn(doingColumn);
+	board.addColumn(verifyColumn);
 	board.addColumn(doneColumn);
 
-	// // TWORZENIE NOWYCH EGZEMPLARZY KART
-	// var card1 = new Card('Nowe zadanie');
-	// var card2 = new Card('Stworzyc tablice kanban');
+	// TWORZENIE NOWYCH EGZEMPLARZY KART
+	var card1 = new Card('Swobodnie kodować w JS i jQuery');
+	var card2 = new Card('Swobodnie obsługiwać Grunt i Git');
+	var card3 = new Card('Wykonać aplikację Kamień Nożyczki Papier');
+	var card4 = new Card('Wykonać aplikację Kanban');
+	var card5 = new Card('Znaleźć pracę jako Front-End Developer');
+	var card6 = new Card('Nauczyć się React\'a');
 
-	// DODAWANIE KART DO KOLUMN
-	todoColumn.addCard(card1);
+	//DODAWANIE KART DO KOLUMN
+	doingColumn.addCard(card1);
 	doingColumn.addCard(card2);
+	todoColumn.addCard(card5);
+	doneColumn.addCard(card3);
+	verifyColumn.addCard(card4);
+	todoColumn.addCard(card6);
 });
