@@ -32,19 +32,17 @@ h1 {
     font-size: 12px; }
     .column .glyphicon-remove:hover {
       color: #fff; }
-  .column .btn-add {
+  .column .input-add {
     background-color: #006A94;
-    color: #fff;
-    width: 100%;
+    color: #8ED0EA;
+    width: 80%;
     height: 30px;
     border: 3px solid #004966;
     margin-top: 0;
     text-align: left;
     transition: .3s; }
-    .column .btn-add:hover {
-      text-shadow: 1px 1px 1px #000; }
-      .column .btn-add:hover .glyphicon-plus {
-        text-shadow: 1px 1px 1px #000; }
+    .column .input-add:hover {
+      color: #fff; }
 
 .create-column {
   display: flex;
@@ -67,7 +65,6 @@ h1 {
   padding: 12px;
   margin-top: 5px;
   box-shadow: 0 2px 2px #333;
-  transition: .1s;
   cursor: move; }
   .card p {
     color: #fff; }
@@ -118,6 +115,6 @@ h1 {
 @media screen and (min-width: 480px) and (max-width: 768px) {
   .column {
     width: 50%;
-    float: left; } }
+    display: flex; } }
 
 /*# sourceMappingURL=style.css.map */

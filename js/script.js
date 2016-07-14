@@ -24,23 +24,27 @@ $(function() {
 			// var $columnDelete = $('<button>').addClass('btn-delete').text('x');
 			// var $columnAddCard = $('<button>').addClass('add-card').text('Dodaj kartę');
 			var $icnRemove = $('<span>').addClass('glyphicon glyphicon-remove'); // RoHell
-			var $btnAdd = $('<button>').text('Add Card').addClass('btn-add'); //RoHell
+			var $btnAdd = $('<div>').addClass('btn-add'); //RoHell
 			var $icnAdd = $('<span>').addClass('glyphicon glyphicon-plus'); // RoHell
+
+      var $inputAdd = $('<input>').attr({type: 'textbox', value: 'Card description'}).addClass('input-add');
 
 			$icnRemove.click(function() {
 				self.removeColumn();
 			});
 
-			$btnAdd.click(function() {
-				self.addCard(new Card(prompt('Wpisz nazwę karty', '... Empty Card...')));
+			$icnAdd.click(function() {
+				self.addCard(new Card($inputAdd.val()));
 			});
 
-			$btnAdd.append($icnAdd);
+			// $btnAdd.append($icnAdd)
+            // .append($inputAdd);
 
 			$row.append($column);
 			$column.append($columnTitle)
 					.append($icnRemove)
-					.append($btnAdd)
+					.append($icnAdd)
+          .append($inputAdd)
 					.append($columnList);
 
 			return $column;

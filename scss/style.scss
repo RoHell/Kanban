@@ -42,20 +42,17 @@ h1 {
       color: $white-clr;
     }
   }
-  .btn-add {
+  .input-add {
     background-color: $dark-clr;
-    color: $white-clr;
-    width: 100%;
+    color: $bg-clr;
+    width: 80%;
     height: 30px;
     border: 3px solid $darker-clr;
     margin-top: 0;
     text-align: left;
     transition: .3s;
     &:hover {
-      text-shadow: $text-shadow;
-      .glyphicon-plus {
-        text-shadow: $text-shadow;
-      }
+      color: $white-clr;
     }
   }   
 }
@@ -67,7 +64,7 @@ h1 {
   background-color: $dark-clr;
   color: $white-clr;
   border: none;
-  padding:10px;
+  padding: 10px;
   margin: 0 auto;
   border: 3px solid transparent;
   transition: .3s;
@@ -83,7 +80,7 @@ h1 {
   padding: 12px;
   margin-top: 5px;
   box-shadow: 0 2px 2px #333;
-  transition: .1s;
+  // transition: .1s;
   cursor: move;
   p {
     color: $white-clr;    
@@ -144,6 +141,7 @@ h1 {
   margin-right: 10px;
   float: left;
   color: $white-clr;
+  
   transition: .2s;
 }
 
@@ -176,6 +174,6 @@ h1 {
 @media screen and (min-width: 480px) and (max-width: 768px) {
   .column {
     width: 50%;
-    float: left;
+    display: flex;
   }
 }
