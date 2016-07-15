@@ -13,3 +13,10 @@
 	opacity: .4;
 	height: 5px;
 }
+
+%flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+}

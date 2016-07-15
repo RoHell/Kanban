@@ -26,11 +26,9 @@ h1 {
   position: relative;
   min-height: 50px;
   top: 50px;
-  color: $bg-clr;
+  color: $white-clr;
   transition: .3s;
-  &:hover {
-    color: $white-clr;
-  }
+
   .glyphicon-remove {
     position: absolute;
     right: 15px;
@@ -42,36 +40,97 @@ h1 {
       color: $white-clr;
     }
   }
+
+  .input-add-div {
+    height: 25px;
+    width: 100%;
+    background-color: $darker-clr;
+  }
+  .glyphicon-ok {
+    position: relative;
+    float: left;
+    background-color: $darker-clr;
+    font-size: 16px;
+    color: $grey-clr;
+    cursor: pointer;
+    transition: .2s;  
+    padding: 4px;
+    &:hover {
+      color: $white-clr;
+    }
+  }
   .input-add {
-    background-color: $dark-clr;
-    color: $bg-clr;
-    width: 80%;
-    height: 30px;
+    background-color: $darker-clr;
+    color: $grey-clr;
+    font-size: 12px;
+    font-weight: thin;
+    font-style: italic;
+    float: left;
+    width: 86.6%;
     border: 3px solid $darker-clr;
-    margin-top: 0;
-    text-align: left;
+    border-bottom: 1px solid $white-clr;
+    margin-top: -4px;
     transition: .3s;
     &:hover {
       color: $white-clr;
     }
-  }   
+    &:focus {
+      color: $white-clr;
+      .glyphicon-ok {
+        color: $white-clr;
+      }
+    }
+  }
 }
 
-.create-column {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $dark-clr;
+.create-column-btn {
+  @extend %flex-center;
+  min-width: 210px;
+  font-size: 25px;
+  background-color: $darker-clr;
   color: $white-clr;
   border: none;
-  padding: 10px;
-  margin: 0 auto;
-  border: 3px solid transparent;
+  text-align: center;
+  line-height: 45px;
   transition: .3s;
+}
+
+.new-column-btn {
+  position: relative;
+  @extend %flex-center;
+  height: 25px;
+  width: 210px;
+  background-color: $darker-clr;
+  display: none;
+}
+
+.new-column-ok {
+  position: relative;
+  float: left;
+  background-color: $darker-clr;
+  font-size: 16px;
+  color: $grey-clr;
+  cursor: pointer;
+  transition: .2s;  
+  padding: 4px;
+  top: 0;
   &:hover {
-    text-shadow: $text-shadow;
-    border: 3px solid $darker-clr;
+    color: $white-clr;
   }
+}
+
+.new-column-input {
+  background-color: $darker-clr;
+  color: $grey-clr;
+  font-size: 12px;
+  font-weight: thin;
+  font-style: italic;
+  float: left;
+  width: 86.6%;
+  border: 3px solid $darker-clr;
+  border-bottom: 1px solid $white-clr;
+  margin-top: -3px;
+  transition: .3s;  
 }
 
 .card {
@@ -135,16 +194,6 @@ h1 {
   }
 }
 
-.glyphicon-plus {
-  font-size: 18px;
-  line-height: 18px;
-  margin-right: 10px;
-  float: left;
-  color: $white-clr;
-  
-  transition: .2s;
-}
-
 .column-title  {
   text-align: center;
   line-height: 45px;
@@ -171,9 +220,19 @@ h1 {
   font-size: 14px;
 }
 
-@media screen and (min-width: 480px) and (max-width: 768px) {
-  .column {
-    width: 50%;
-    display: flex;
+@media screen and (max-width: 480px) {
+  .col-s-2 {
+    width: 100%;
+    float: none;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .column .input-add {
+    width: 80%;
+  }
+
+  .column-title {
+    font-size: 20px;
   }
 }

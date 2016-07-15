@@ -1,3 +1,9 @@
+.create-column-btn, .new-column-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto; }
+
 * {
   box-sizing: border-box; }
 
@@ -19,10 +25,8 @@ h1 {
   position: relative;
   min-height: 50px;
   top: 50px;
-  color: #8ED0EA;
+  color: #fff;
   transition: .3s; }
-  .column:hover {
-    color: #fff; }
   .column .glyphicon-remove {
     position: absolute;
     right: 15px;
@@ -32,32 +36,82 @@ h1 {
     font-size: 12px; }
     .column .glyphicon-remove:hover {
       color: #fff; }
+  .column .input-add-div {
+    height: 25px;
+    width: 100%;
+    background-color: #004966; }
+  .column .glyphicon-ok {
+    position: relative;
+    float: left;
+    background-color: #004966;
+    font-size: 16px;
+    color: #B9BFC2;
+    cursor: pointer;
+    transition: .2s;
+    padding: 4px; }
+    .column .glyphicon-ok:hover {
+      color: #fff; }
   .column .input-add {
-    background-color: #006A94;
-    color: #8ED0EA;
-    width: 80%;
-    height: 30px;
+    background-color: #004966;
+    color: #B9BFC2;
+    font-size: 12px;
+    font-weight: thin;
+    font-style: italic;
+    float: left;
+    width: 86.6%;
     border: 3px solid #004966;
-    margin-top: 0;
-    text-align: left;
+    border-bottom: 1px solid #fff;
+    margin-top: -4px;
     transition: .3s; }
     .column .input-add:hover {
       color: #fff; }
+    .column .input-add:focus {
+      color: #fff; }
+      .column .input-add:focus .glyphicon-ok {
+        color: #fff; }
 
-.create-column {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #006A94;
+.create-column-btn {
+  min-width: 210px;
+  font-size: 25px;
+  background-color: #004966;
   color: #fff;
   border: none;
-  padding: 10px;
-  margin: 0 auto;
-  border: 3px solid transparent;
+  text-align: center;
+  line-height: 45px;
   transition: .3s; }
-  .create-column:hover {
-    text-shadow: 1px 1px 1px #000;
-    border: 3px solid #004966; }
+
+.new-column-btn {
+  position: relative;
+  height: 25px;
+  width: 210px;
+  background-color: #004966;
+  display: none; }
+
+.new-column-ok {
+  position: relative;
+  float: left;
+  background-color: #004966;
+  font-size: 16px;
+  color: #B9BFC2;
+  cursor: pointer;
+  transition: .2s;
+  padding: 4px;
+  top: 0; }
+  .new-column-ok:hover {
+    color: #fff; }
+
+.new-column-input {
+  background-color: #004966;
+  color: #B9BFC2;
+  font-size: 12px;
+  font-weight: thin;
+  font-style: italic;
+  float: left;
+  width: 86.6%;
+  border: 3px solid #004966;
+  border-bottom: 1px solid #fff;
+  margin-top: -3px;
+  transition: .3s; }
 
 .card {
   position: relative;
@@ -82,14 +136,6 @@ h1 {
     .card .glyphicon-remove:hover {
       color: #fff; }
 
-.glyphicon-plus {
-  font-size: 18px;
-  line-height: 18px;
-  margin-right: 10px;
-  float: left;
-  color: #fff;
-  transition: .2s; }
-
 .column-title {
   text-align: center;
   line-height: 45px;
@@ -112,9 +158,15 @@ h1 {
 .card-description {
   font-size: 14px; }
 
-@media screen and (min-width: 480px) and (max-width: 768px) {
-  .column {
-    width: 50%;
-    display: flex; } }
+@media screen and (max-width: 480px) {
+  .col-s-2 {
+    width: 100%;
+    float: none; } }
+
+@media screen and (min-width: 800px) {
+  .column .input-add {
+    width: 80%; }
+  .column-title {
+    font-size: 20px; } }
 
 /*# sourceMappingURL=style.css.map */
