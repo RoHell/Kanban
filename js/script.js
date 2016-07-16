@@ -18,29 +18,33 @@ $(function() {
 
 		function createColumn() {
 			var $row = $('<div>').addClass('row')
-			var $column = $('<div>').addClass('column col-s-2 col-sm-4 col-md-3 col-lg-2');
+			var $column = $('<div>').addClass('column col-s-2 col-xs-6 col-sm-4 col-md-3 col-lg-2');
 			var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
 			var $columnList = $('<ul>').addClass('column-list');
-			// var $columnDelete = $('<button>').addClass('btn-delete').text('x');
-			// var $columnAddCard = $('<button>').addClass('add-card').text('Dodaj kartę');
 			var $icnRemove = $('<span>').addClass('glyphicon glyphicon-remove'); // RoHell
-			var $btnAdd = $('<button>').text('Add Card').addClass('btn-add'); //RoHell
-			var $icnAdd = $('<span>').addClass('glyphicon glyphicon-plus'); // RoHell
+			var $inputAddDiv = $('<div>').addClass('input-add-div'); //RoHell
+			var $icnAdd = $('<span>').addClass('glyphicon glyphicon-ok'); // RoHell
+      var $inputAdd = $('<input>').attr({type: 'textbox', value: '', placeholder: 'Type card description'}).addClass('input-add'); //RoHell
 
 			$icnRemove.click(function() {
 				self.removeColumn();
 			});
 
-			$btnAdd.click(function() {
-				self.addCard(new Card(prompt('Wpisz nazwę karty', '... Empty Card...')));
+			$icnAdd.click(function() {
+        if ($inputAdd.val() == ('')) {          
+          return $inputAdd.val('Card description');
+        } else {
+          self.addCard(new Card($inputAdd.val()));  
+        }
 			});
 
-			$btnAdd.append($icnAdd);
+			$inputAddDiv.append($icnAdd)
+                  .append($inputAdd);
 
 			$row.append($column);
 			$column.append($columnTitle)
 					.append($icnRemove)
-					.append($btnAdd)
+          .append($inputAddDiv)
 					.append($columnList);
 
 			return $column;
@@ -100,11 +104,25 @@ $(function() {
 		}).disableSelection();
 	}
 
-	$('.create-column').click(function() {
-		var name = prompt('Wpisz nazwę kolumny', 'Task');
-		var column = new Column(name);
-		board.addColumn(column);
-	});
+  $('.create-column-btn').click(function() {
+    $('.new-column-btn').slideToggle();
+    // if ($('.new-column-btn').getAttribute('visibility', 'visible')) {
+    //   $('.new-column-btn').setAttribute('visibility', 'hidden');
+    // } else {
+    //   $('.new-column-btn').setAttribute('visibility', 'visible');
+    //   }
+  });
+
+	$('.new-column-ok').click(function() {
+    var name = $('.new-column-input').val();
+    var column = new Column(name);
+		
+    if (name == ('')) {          
+      return $('.new-column-input').val('Column name');
+    } else {
+      board.addColumn(column);
+    }
+  });
 
 	// TWORZENIE KOLUMN
 	var todoColumn = new Column('To Do');

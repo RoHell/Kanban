@@ -13,3 +13,54 @@
 	opacity: .4;
 	height: 5px;
 }
+
+%flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+}
+
+%ok-sign {
+	position: relative;
+    float: left;
+    background-color: $darker-clr;
+    font-size: 16px;
+    color: $grey-clr;
+    cursor: pointer;
+    transition: .2s;  
+    padding: 4px;
+    &:hover {
+      color: $white-clr;
+    }
+}
+
+%input-field {
+	background-color: $darker-clr;
+    color: $grey-clr;
+    font-size: 12px;
+    font-weight: thin;
+    font-style: italic;
+    float: left;
+    width: 86.6%;
+    border: 3px solid $darker-clr;
+    border-bottom: 1px solid $white-clr;
+    margin-top: -4px;
+    transition: .3s;
+    &:hover {
+      color: $white-clr;
+    }
+    &:focus {
+      color: $white-clr;
+      .glyphicon-ok {
+        color: $white-clr;
+      }
+    }
+}
+
+%title {
+  font-size: 25px;
+  background-color: $darker-clr;
+  text-align: center;
+  line-height: 45px;
+}
