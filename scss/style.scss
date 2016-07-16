@@ -90,7 +90,7 @@ h1 {
   // transition: .1s;
   cursor: move;
   p {
-    color: $black-clr;
+    color: $white-clr;
     font-size: 14px;
     font-family: $card-font;
     font-weight: 500;
@@ -178,30 +178,5 @@ h1 {
 
   .column-title {
     font-size: 20px;
-  }
-  .create-column-btn {
-    @extend %flex-center;
-    @extend %title;
-    min-width: 210px;
-    color: $white-clr;
-    border: none;
-    transition: .3s;
-  }
-
-  .new-column-btn {
-    position: relative;
-    @extend %flex-center;
-    height: 25px;
-    width: 210px;
-    background-color: $darker-clr;
-    display: none;
-  }
-
-  .new-column-ok {
-    @extend %ok-sign;
-  }
-
-  .new-column-input {
-      @extend %input-field; 
   }
 }

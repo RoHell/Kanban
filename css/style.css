@@ -100,7 +100,7 @@ h1 {
   box-shadow: 0 2px 2px #333;
   cursor: move; }
   .card p {
-    color: #000;
+    color: #fff;
     font-size: 14px;
     font-family: "PT Mono", monospace;
     font-weight: 500; }
