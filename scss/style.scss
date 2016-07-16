@@ -17,8 +17,9 @@ h1 {
 }
 
 .board p {
+  font-family: $card-font;
   text-align: center;
-  font-size: 18px;
+  font-size: 15px;
   color: $darker-clr;
 }
 
@@ -47,51 +48,19 @@ h1 {
     background-color: $darker-clr;
   }
   .glyphicon-ok {
-    position: relative;
-    float: left;
-    background-color: $darker-clr;
-    font-size: 16px;
-    color: $grey-clr;
-    cursor: pointer;
-    transition: .2s;  
-    padding: 4px;
-    &:hover {
-      color: $white-clr;
-    }
+    @extend %ok-sign;
   }
   .input-add {
-    background-color: $darker-clr;
-    color: $grey-clr;
-    font-size: 12px;
-    font-weight: thin;
-    font-style: italic;
-    float: left;
-    width: 86.6%;
-    border: 3px solid $darker-clr;
-    border-bottom: 1px solid $white-clr;
-    margin-top: -4px;
-    transition: .3s;
-    &:hover {
-      color: $white-clr;
-    }
-    &:focus {
-      color: $white-clr;
-      .glyphicon-ok {
-        color: $white-clr;
-      }
-    }
+    @extend %input-field;
   }
 }
 
 .create-column-btn {
   @extend %flex-center;
+  @extend %title;
   min-width: 210px;
-  font-size: 25px;
-  background-color: $darker-clr;
   color: $white-clr;
   border: none;
-  text-align: center;
-  line-height: 45px;
   transition: .3s;
 }
 
@@ -105,32 +74,11 @@ h1 {
 }
 
 .new-column-ok {
-  position: relative;
-  float: left;
-  background-color: $darker-clr;
-  font-size: 16px;
-  color: $grey-clr;
-  cursor: pointer;
-  transition: .2s;  
-  padding: 4px;
-  top: 0;
-  &:hover {
-    color: $white-clr;
-  }
+  @extend %ok-sign;
 }
 
 .new-column-input {
-  background-color: $darker-clr;
-  color: $grey-clr;
-  font-size: 12px;
-  font-weight: thin;
-  font-style: italic;
-  float: left;
-  width: 86.6%;
-  border: 3px solid $darker-clr;
-  border-bottom: 1px solid $white-clr;
-  margin-top: -3px;
-  transition: .3s;  
+    @extend %input-field; 
 }
 
 .card {
@@ -142,7 +90,10 @@ h1 {
   // transition: .1s;
   cursor: move;
   p {
-    color: $white-clr;    
+    color: $black-clr;
+    font-size: 14px;
+    font-family: $card-font;
+    font-weight: 500;
   }
   // &:before {
   //   position: absolute;
@@ -195,11 +146,8 @@ h1 {
 }
 
 .column-title  {
-  text-align: center;
-  line-height: 45px;
-  background-color: $darker-clr;
+  @extend %title;
   margin: 0;
-  font-size: 25px;
 }
 
 .column-list {
@@ -216,10 +164,6 @@ h1 {
   opacity: .3;
 }
 
-.card-description {
-  font-size: 14px;
-}
-
 @media screen and (max-width: 480px) {
   .col-s-2 {
     width: 100%;
@@ -234,5 +178,30 @@ h1 {
 
   .column-title {
     font-size: 20px;
+  }
+  .create-column-btn {
+    @extend %flex-center;
+    @extend %title;
+    min-width: 210px;
+    color: $white-clr;
+    border: none;
+    transition: .3s;
+  }
+
+  .new-column-btn {
+    position: relative;
+    @extend %flex-center;
+    height: 25px;
+    width: 210px;
+    background-color: $darker-clr;
+    display: none;
+  }
+
+  .new-column-ok {
+    @extend %ok-sign;
+  }
+
+  .new-column-input {
+      @extend %input-field; 
   }
 }
