@@ -24,7 +24,7 @@ $(function() {
 			var $icnRemove = $('<span>').addClass('glyphicon glyphicon-remove'); // RoHell
 			var $inputAddDiv = $('<div>').addClass('input-add-div'); //RoHell
 			var $icnAdd = $('<span>').addClass('glyphicon glyphicon-ok'); // RoHell
-      var $inputAdd = $('<input>').attr({type: 'textbox', value: ''}).addClass('input-add'); //RoHell
+      var $inputAdd = $('<input>').attr({type: 'textbox', value: '', placeholder: 'Type card description'}).addClass('input-add'); //RoHell
 
 			$icnRemove.click(function() {
 				self.removeColumn();
