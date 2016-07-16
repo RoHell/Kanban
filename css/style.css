@@ -136,7 +136,9 @@ h1 {
 @media screen and (max-width: 480px) {
   .col-s-2 {
     width: 100%;
-    float: none; } }
+    float: none; }
+  .column-list {
+    min-height: auto; } }
 
 @media screen and (min-width: 800px) {
   .column .input-add {
