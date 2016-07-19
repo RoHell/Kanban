@@ -13,6 +13,7 @@ $('.create-column-btn').click(function() {
 
 $('.new-column-ok').click(function() {
 	var columnName = $('.new-column-input').val();
+
 	$.ajax({
 		url: baseUrl + '/column',
 		method: 'POST',

@@ -8,13 +8,11 @@ function Card(id, name) {
 	function addCard() {
 		var $card = $('<li>').addClass('card');
 		var $cardDescription = $('<p>').addClass('card-description').text(self.name);
-		// var $cardDelete = $('<button>').addClass('btn-delete').text('x');
 
-		var $icnRemove = $('<span>').addClass('glyphicon glyphicon-remove'); // RoHell
+		var $icnRemove = $('<span>').addClass('glyphicon glyphicon-remove');
 
 		$icnRemove.click(function() {
 			self.removeCard();
-			console.log($icnRemove);
 		});
 
 		$card.append($icnRemove)

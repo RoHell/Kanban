@@ -10,10 +10,10 @@ function Column(id, name) {
 		var $column = $('<div>').addClass('column col-s-2 col-xs-6 col-sm-4 col-md-3 col-lg-2');
 		var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
 		var $columnList = $('<ul>').addClass('column-list');
-		var $icnRemove = $('<span>').addClass('glyphicon glyphicon-remove'); // RoHell
-		var $inputAddDiv = $('<div>').addClass('input-add-div'); //RoHell
-		var $icnAdd = $('<span>').addClass('glyphicon glyphicon-ok'); // RoHell
-  		var $inputAdd = $('<input>').attr({type: 'textbox', value: '', placeholder: 'Type card description'}).addClass('input-add'); //RoHell
+		var $icnRemove = $('<span>').addClass('glyphicon glyphicon-remove');
+		var $inputAddDiv = $('<div>').addClass('input-add-div');
+		var $icnAdd = $('<span>').addClass('glyphicon glyphicon-ok');
+  		var $inputAdd = $('<input>').attr({type: 'textbox', value: '', placeholder: 'Type card description'}).addClass('input-add');
 
 		$icnRemove.click(function() {
 			self.removeColumn();
@@ -21,11 +21,6 @@ function Column(id, name) {
 
 		$icnAdd.click(function() {
 			var cardName = $inputAdd.val();
-				if (cardName == ('')) {
-				return $inputAdd.val('Card description');
-				} else {
-				self.addCard(new Card(cardName));
-			}
 			$.ajax({
 				url: baseUrl + '/card',
 				method: 'POST',
@@ -66,5 +61,4 @@ Column.prototype.removeColumn = function() {
 			self.$element.remove();
 		}
 	});
-	// this.$element.remove();
 };
