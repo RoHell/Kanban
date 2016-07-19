@@ -33,6 +33,7 @@ function Column(id, name) {
 					self.addCard(card);
 				}
 			});
+			$inputAdd.val('');
 		});
 
 		$inputAddDiv.append($icnAdd)

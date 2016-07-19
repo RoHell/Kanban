@@ -22,13 +22,16 @@ $('.new-column-ok').click(function() {
 		},
 		success: function(response) {
 			var column = new Column(response.id, columnName);
-			if (columnName == ('')) {
-			  return $('.new-column-input').val('Column name');
-			} else {
+			// if (columnName == ('')) {
+			//   return $('.new-column-input').val('Column name');
+			// } else {
 			  board.addColumn(column);
-			}
-		}
+			// }
+		}		
 	});
+	
+	$('.new-column-btn').delay(1000).slideToggle();
+	$('.new-column-input').val('');
 });
 
 function initSortable() {
