@@ -23,7 +23,7 @@
 
 %ok-sign {
 	position: relative;
-    float: left;
+    float: right;
     background-color: $darker-clr;
     font-size: 16px;
     color: $grey-clr;
@@ -41,12 +41,13 @@
     font-size: 12px;
     font-weight: thin;
     font-style: italic;
-    float: left;
+    float: right;
     width: 86.6%;
     border: 3px solid $darker-clr;
-    border-bottom: 1px solid $white-clr;
-    margin-top: -4px;
+    border-bottom: 1px solid $grey-clr;
+    margin-top: -3px;
     transition: .3s;
+    outline-color: $darker-clr;
     &:hover {
       color: $white-clr;
     }
@@ -61,6 +62,10 @@
 %title {
   font-size: 25px;
   background-color: $darker-clr;
-  text-align: center;
+  text-align: left;
   line-height: 45px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 20px;
 }

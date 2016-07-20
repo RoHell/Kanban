@@ -6,7 +6,7 @@
 
 .column .glyphicon-ok, .new-column-ok {
   position: relative;
-  float: left;
+  float: right;
   background-color: #004966;
   font-size: 16px;
   color: #B9BFC2;
@@ -22,12 +22,13 @@
   font-size: 12px;
   font-weight: thin;
   font-style: italic;
-  float: left;
+  float: right;
   width: 86.6%;
   border: 3px solid #004966;
-  border-bottom: 1px solid #fff;
-  margin-top: -4px;
-  transition: .3s; }
+  border-bottom: 1px solid #B9BFC2;
+  margin-top: -3px;
+  transition: .3s;
+  outline-color: #004966; }
   .column .input-add:hover, .new-column-input:hover {
     color: #fff; }
   .column .input-add:focus, .new-column-input:focus {
@@ -38,8 +39,12 @@
 .create-column-btn, .column-title {
   font-size: 25px;
   background-color: #004966;
-  text-align: center;
-  line-height: 45px; }
+  text-align: left;
+  line-height: 45px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 20px; }
 
 * {
   box-sizing: border-box; }
@@ -61,13 +66,16 @@ h1 {
 
 .column {
   position: relative;
-  min-height: 50px;
+  display: inline-block;
+  width: 210px;
   top: 50px;
   color: #fff;
-  transition: .3s; }
+  transition: .3s;
+  margin: 30px 15px 0;
+  float: left; }
   .column .glyphicon-remove {
     position: absolute;
-    right: 15px;
+    right: 0;
     cursor: pointer;
     color: #006A94;
     padding: 2px;
@@ -83,7 +91,8 @@ h1 {
   min-width: 210px;
   color: #fff;
   border: none;
-  transition: .3s; }
+  transition: .3s;
+  outline: none; }
 
 .new-column-btn {
   position: relative;
@@ -124,26 +133,12 @@ h1 {
 .column-list {
   list-style-type: none;
   padding-left: 0;
-  margin-top: 5px;
-  min-height: 50vh; }
+  margin-top: 5px; }
 
 .card-placeholder {
   height: 80px;
   margin-top: 5px;
   background-color: #00A4E5;
   opacity: .3; }
-
-@media screen and (max-width: 480px) {
-  .col-s-2 {
-    width: 100%;
-    float: none; }
-  .column-list {
-    min-height: 20px; } }
-
-@media screen and (min-width: 800px) {
-  .column .input-add {
-    width: 81%; }
-  .column-title {
-    font-size: 20px; } }
 
 /*# sourceMappingURL=style.css.map */

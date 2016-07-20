@@ -16,23 +16,31 @@ h1 {
   color: $darker-clr;
 }
 
-.board p {
+.board {
+  p {
   font-family: $card-font;
   text-align: center;
   font-size: 15px;
   color: $darker-clr;
+  }
 }
+
+
 
 .column {
   position: relative;
-  min-height: 50px;
+  display: inline-block;
+  width: 210px;
+  // height: calc(100vh 157px);
   top: 50px;
   color: $white-clr;
   transition: .3s;
+  margin: 30px 15px 0;
+  float: left;
 
   .glyphicon-remove {
     position: absolute;
-    right: 15px;
+    right: 0;
     cursor: pointer;
     color: $dark-clr;
     padding: 2px;
@@ -62,6 +70,7 @@ h1 {
   color: $white-clr;
   border: none;
   transition: .3s;
+  outline: none;
 }
 
 .new-column-btn {
@@ -154,7 +163,7 @@ h1 {
   list-style-type: none;
   padding-left: 0;
   margin-top: 5px;
-  min-height: 50vh;
+  // min-height: 50vh;
 }
 
 .card-placeholder {
@@ -164,22 +173,22 @@ h1 {
   opacity: .3;
 }
 
-@media screen and (max-width: 480px) {
-  .col-s-2 {
-    width: 100%;
-    float: none;
-  }
-  .column-list {
-    min-height: auto;
-  }
-}
+// @media screen and (max-width: 480px) {
+//   .col-s-2 {
+//     width: 100%;
+//     float: none;
+//   }
+//   .column-list {
+//     min-height: auto;
+//   }
+// }
 
-@media screen and (min-width: 800px) {
-  .column .input-add {
-    width: 81%;
-  }
+// @media screen and (min-width: 800px) {
+//   .column .input-add {
+//     width: 81%;
+//   }
 
-  .column-title {
-    font-size: 20px;
-  }
-}
+//   .column-title {
+//     font-size: 20px;
+//   }
+// }
