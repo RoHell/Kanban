@@ -7,8 +7,9 @@ var board = {
 	$element: $('#board .column-container')
 };
 
+
 $('.create-column-btn').click(function() {
-	$('.new-column-btn').slideToggle();
+	$('.new-column-btn').slideToggle()
 });
 
 $('.new-column-ok').click(function() {
@@ -22,16 +23,21 @@ $('.new-column-ok').click(function() {
 		},
 		success: function(response) {
 			var column = new Column(response.id, columnName);
-			// if (columnName == ('')) {
-			//   return $('.new-column-input').val('Column name');
-			// } else {
-			  board.addColumn(column);
-			// }
-		}		
+			  	board.addColumn(column);
+		}
 	});
 	
 	$('.new-column-btn').delay(1000).slideToggle();
 	$('.new-column-input').val('');
+
+	return false;
+
+});
+
+$('.new-column-input').on('keyup', function(e) {
+    if (e.keyCode === 13) {
+        $('.new-column-ok').click();
+    }
 });
 
 function initSortable() {

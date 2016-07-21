@@ -28,7 +28,7 @@
   border-bottom: 1px solid #B9BFC2;
   margin-top: -3px;
   transition: .3s;
-  outline-color: #004966; }
+  outline: none; }
   .column .input-add:hover, .new-column-input:hover {
     color: #fff; }
   .column .input-add:focus, .new-column-input:focus {
@@ -58,26 +58,31 @@ h1 {
   font-family: "Bungee", cursive;
   color: #004966; }
 
-.board p {
-  font-family: "PT Mono", monospace;
-  text-align: center;
-  font-size: 15px;
-  color: #004966; }
+.board {
+  position: relative; }
+  .board p {
+    font-family: "PT Mono", monospace;
+    text-align: center;
+    font-size: 15px;
+    color: #004966; }
+
+.column-container {
+  overflow-y: auto;
+  width: calc(242px * 10); }
 
 .column {
   position: relative;
   display: inline-block;
   width: 210px;
-  top: 50px;
   color: #fff;
   transition: .3s;
-  margin: 30px 15px 0;
-  float: left; }
+  float: left;
+  margin: 30px 15px 0; }
   .column .glyphicon-remove {
     position: absolute;
-    right: 0;
+    right: 0px;
     cursor: pointer;
-    color: #006A94;
+    color: #B9BFC2;
     padding: 2px;
     font-size: 12px; }
     .column .glyphicon-remove:hover {
@@ -92,14 +97,25 @@ h1 {
   color: #fff;
   border: none;
   transition: .3s;
-  outline: none; }
+  outline: none;
+  border-radius: 4px; }
 
 .new-column-btn {
   position: relative;
-  height: 25px;
+  top: -4px;
+  height: 29px;
   width: 210px;
   background-color: #004966;
-  display: none; }
+  display: none;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px; }
+
+.new-column-ok {
+  border-bottom-right-radius: 4px;
+  margin-top: 1px; }
+
+.new-column-input {
+  margin-top: 1px; }
 
 .card {
   position: relative;
@@ -133,7 +149,9 @@ h1 {
 .column-list {
   list-style-type: none;
   padding-left: 0;
-  margin-top: 5px; }
+  margin-top: 5px;
+  height: calc(100vh - 306px);
+  overflow-x: auto; }
 
 .card-placeholder {
   height: 80px;

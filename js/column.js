@@ -6,35 +6,22 @@ function Column(id, name) {
 	this.$element = createColumn();
 
 	function createColumn() {
-		// var $row = $('<div>').addClass('row')
+		var $row = $('<div>').addClass('row')
 		var $column = $('<div>').addClass('column');
 		var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
 		var $columnList = $('<ul>').addClass('column-list');
-		var $icnRemove = $('<span>').addClass('glyphicon glyphicon-remove');
-		var $inputAddDiv = $('<div>').addClass('input-add-div');
-		var $icnAdd = $('<span>').addClass('glyphicon glyphicon-ok');
-  		var $inputAdd = $('<input>').attr({type: 'textbox', value: '', placeholder: 'Type card description + Enter'}).addClass('input-add');
+		var $icnRemove = $('<span>').addClass('glyphicon glyphicon-remove'); // RoHell
+		var $inputAddDiv = $('<div>').addClass('input-add-div'); //RoHell
+		var $icnAdd = $('<span>').addClass('glyphicon glyphicon-ok add-card-ok'); // RoHell
+  		var $inputAdd = $('<input>').attr({type: 'textbox', value: '', placeholder: 'Type card description +Enter'}).addClass('input-add input-card'); //RoHell
 
 		$icnRemove.click(function() {
 			self.removeColumn();
 		});
 
-		// var e = jQuery.Event('keypress');
-		// e.which = 13;
-		// e.keyCode = 13;
-		// $('.input-add').trigger(e);
-
-		
-		$inputAdd.keydown(function (e) {
-		    if (e.which == '13') {
-		        return ($inputAdd.val());
-			}
-		});
-
-		
-
 		$icnAdd.click(function() {
-		var cardName = $inputAdd.val();
+
+			var cardName = $inputAdd.val();
 
 			$.ajax({
 				url: baseUrl + '/card',
@@ -49,13 +36,16 @@ function Column(id, name) {
 				}
 			});
 
-			// $inputAdd.val('');
+			$inputAdd.val('');
+
+			return false;
+
 		});
 
 		$inputAddDiv.append($icnAdd)
               	.append($inputAdd);
 
-		// $row.append($column);
+		$row.append($column);
 		$column.append($columnTitle)
 				.append($icnRemove)
       			.append($inputAddDiv)
@@ -64,6 +54,8 @@ function Column(id, name) {
 		return $column;
 	}
 }
+
+
 
 Column.prototype.addCard = function(card) {
 	this.$element.children('ul').append(card.$element);
