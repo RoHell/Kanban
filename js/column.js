@@ -16,26 +16,80 @@ function Column(id, name) {
   		var $inputAdd = $('<input>').attr({type: 'textbox', value: '', placeholder: 'Type card description +Enter'}).addClass('input-add input-card'); //RoHell
   		
 
-		$icnRemove.click(function() {
-			self.removeColumn();
-			// $( function() {
-			//   $( "#dialog-confirm" ).dialog({
-			//     resizable: false,
-			//     height: "auto",
-			//     width: 400,
-			//     modal: true,
-			//     buttons: {
-			//       "Delete all items": function() {
-			//         $( this ).dialog( "close" );
-			//       },
-			//       Cancel: function() {
-			//         $( this ).dialog( "close" );
-			//       }
-			//     }
-			//   });
-			// } );
-			// alert('Remove column and all its cards permanently?');
+		// $icnRemove.click(function() {
+		// 	self.removeColumn();
+		// 	// $( function() {
+		// 	//   $( "#dialog-confirm" ).dialog({
+		// 	//     resizable: false,
+		// 	//     height: "auto",
+		// 	//     width: 400,
+		// 	//     modal: true,
+		// 	//     buttons: {
+		// 	//       "Delete all items": function() {
+		// 	//         $( this ).dialog( "close" );
+		// 	//       },
+		// 	//       Cancel: function() {
+		// 	//         $( this ).dialog( "close" );
+		// 	//       }
+		// 	//     }
+		// 	//   });
+		// 	// } );
+		// 	// alert('Remove column and all its cards permanently?');
+		// });
+
+		$($icnRemove).click(function(){
+		  	ShowCustomDialog();
 		});
+
+		function ShowCustomDialog() {                
+		  ShowDialogBox('Warning','Record updated successfully.','Ok','', 'GoToAssetList',null);
+		}
+		            
+		function ShowDialogBox(title, content, btn1text, btn2text, functionText, parameterList) {
+		  var btn1css;
+		  var btn2css;
+
+		  if (btn1text == '') {
+		    btn1css = "hidecss";
+		  } else {
+		    btn1css = "showcss";
+		  }
+
+		  if (btn2text == '') {
+		    btn2css = "hidecss";
+		  } else {
+		    btn2css = "showcss";
+		  }
+
+		  $("#lblMessage").html(content);
+
+		  $("#dialog").dialog({
+		    resizable: false,
+		    title: title,
+		    modal: true,
+		    width: '400px',
+		    height: 'auto',
+		    bgiframe: false,
+		    hide: { effect: 'scale', duration: 400 },
+
+		    buttons: [{
+		                text: btn1text,
+		                "class": btn1css,
+		                click: function () {
+		                                                            
+		                    $("#dialog").dialog('close');
+		                }
+		              },
+
+		              {
+		                text: btn2text,
+		                "class": btn2css,
+		                click: function () {
+		                    $("#dialog").dialog('close');
+		                }
+		              }]
+		  });
+		}
 
 		$icnAdd.click(function() {
 
