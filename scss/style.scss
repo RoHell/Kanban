@@ -17,8 +17,9 @@ h1 {
 }
 
 .board p {
+  font-family: $card-font;
   text-align: center;
-  font-size: 18px;
+  font-size: 15px;
   color: $darker-clr;
 }
 
@@ -26,11 +27,9 @@ h1 {
   position: relative;
   min-height: 50px;
   top: 50px;
-  color: $bg-clr;
+  color: $white-clr;
   transition: .3s;
-  &:hover {
-    color: $white-clr;
-  }
+
   .glyphicon-remove {
     position: absolute;
     right: 15px;
@@ -42,39 +41,44 @@ h1 {
       color: $white-clr;
     }
   }
-  .btn-add {
-    background-color: $dark-clr;
-    color: $white-clr;
+
+  .input-add-div {
+    height: 25px;
     width: 100%;
-    height: 30px;
-    border: 3px solid $darker-clr;
-    margin-top: 0;
-    text-align: left;
-    transition: .3s;
-    &:hover {
-      text-shadow: $text-shadow;
-      .glyphicon-plus {
-        text-shadow: $text-shadow;
-      }
-    }
-  }   
+    background-color: $darker-clr;
+  }
+  .glyphicon-ok {
+    @extend %ok-sign;
+  }
+  .input-add {
+    @extend %input-field;
+  }
 }
 
-.create-column {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $dark-clr;
+.create-column-btn {
+  @extend %flex-center;
+  @extend %title;
+  min-width: 210px;
   color: $white-clr;
   border: none;
-  padding:10px;
-  margin: 0 auto;
-  border: 3px solid transparent;
   transition: .3s;
-  &:hover {
-    text-shadow: $text-shadow;
-    border: 3px solid $darker-clr;
-  }
+}
+
+.new-column-btn {
+  position: relative;
+  @extend %flex-center;
+  height: 25px;
+  width: 210px;
+  background-color: $darker-clr;
+  display: none;
+}
+
+.new-column-ok {
+  @extend %ok-sign;
+}
+
+.new-column-input {
+    @extend %input-field;
 }
 
 .card {
@@ -83,10 +87,13 @@ h1 {
   padding: 12px;
   margin-top: 5px;
   box-shadow: 0 2px 2px #333;
-  transition: .1s;
+  // transition: .1s;
   cursor: move;
   p {
-    color: $white-clr;    
+    color: $white-clr;
+    font-size: 14px;
+    font-family: $card-font;
+    font-weight: 500;
   }
   // &:before {
   //   position: absolute;
@@ -138,21 +145,9 @@ h1 {
   }
 }
 
-.glyphicon-plus {
-  font-size: 18px;
-  line-height: 18px;
-  margin-right: 10px;
-  float: left;
-  color: $white-clr;
-  transition: .2s;
-}
-
 .column-title  {
-  text-align: center;
-  line-height: 45px;
-  background-color: $darker-clr;
+  @extend %title;
   margin: 0;
-  font-size: 25px;
 }
 
 .column-list {
@@ -169,13 +164,22 @@ h1 {
   opacity: .3;
 }
 
-.card-description {
-  font-size: 14px;
+@media screen and (max-width: 480px) {
+  .col-s-2 {
+    width: 100%;
+    float: none;
+  }
+  .column-list {
+    min-height: auto;
+  }
 }
 
-@media screen and (min-width: 480px) and (max-width: 768px) {
-  .column {
-    width: 50%;
-    float: left;
+@media screen and (min-width: 800px) {
+  .column .input-add {
+    width: 81%;
+  }
+
+  .column-title {
+    font-size: 20px;
   }
 }

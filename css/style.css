@@ -1,3 +1,46 @@
+.create-column-btn, .new-column-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto; }
+
+.column .glyphicon-ok, .new-column-ok {
+  position: relative;
+  float: left;
+  background-color: #004966;
+  font-size: 16px;
+  color: #B9BFC2;
+  cursor: pointer;
+  transition: .2s;
+  padding: 4px; }
+  .column .glyphicon-ok:hover, .new-column-ok:hover {
+    color: #fff; }
+
+.column .input-add, .new-column-input {
+  background-color: #004966;
+  color: #B9BFC2;
+  font-size: 12px;
+  font-weight: thin;
+  font-style: italic;
+  float: left;
+  width: 86.6%;
+  border: 3px solid #004966;
+  border-bottom: 1px solid #fff;
+  margin-top: -4px;
+  transition: .3s; }
+  .column .input-add:hover, .new-column-input:hover {
+    color: #fff; }
+  .column .input-add:focus, .new-column-input:focus {
+    color: #fff; }
+    .column .input-add:focus .glyphicon-ok, .new-column-input:focus .glyphicon-ok {
+      color: #fff; }
+
+.create-column-btn, .column-title {
+  font-size: 25px;
+  background-color: #004966;
+  text-align: center;
+  line-height: 45px; }
+
 * {
   box-sizing: border-box; }
 
@@ -11,18 +54,17 @@ h1 {
   color: #004966; }
 
 .board p {
+  font-family: "PT Mono", monospace;
   text-align: center;
-  font-size: 18px;
+  font-size: 15px;
   color: #004966; }
 
 .column {
   position: relative;
   min-height: 50px;
   top: 50px;
-  color: #8ED0EA;
+  color: #fff;
   transition: .3s; }
-  .column:hover {
-    color: #fff; }
   .column .glyphicon-remove {
     position: absolute;
     right: 15px;
@@ -32,34 +74,23 @@ h1 {
     font-size: 12px; }
     .column .glyphicon-remove:hover {
       color: #fff; }
-  .column .btn-add {
-    background-color: #006A94;
-    color: #fff;
+  .column .input-add-div {
+    height: 25px;
     width: 100%;
-    height: 30px;
-    border: 3px solid #004966;
-    margin-top: 0;
-    text-align: left;
-    transition: .3s; }
-    .column .btn-add:hover {
-      text-shadow: 1px 1px 1px #000; }
-      .column .btn-add:hover .glyphicon-plus {
-        text-shadow: 1px 1px 1px #000; }
+    background-color: #004966; }
 
-.create-column {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #006A94;
+.create-column-btn {
+  min-width: 210px;
   color: #fff;
   border: none;
-  padding: 10px;
-  margin: 0 auto;
-  border: 3px solid transparent;
   transition: .3s; }
-  .create-column:hover {
-    text-shadow: 1px 1px 1px #000;
-    border: 3px solid #004966; }
+
+.new-column-btn {
+  position: relative;
+  height: 25px;
+  width: 210px;
+  background-color: #004966;
+  display: none; }
 
 .card {
   position: relative;
@@ -67,10 +98,12 @@ h1 {
   padding: 12px;
   margin-top: 5px;
   box-shadow: 0 2px 2px #333;
-  transition: .1s;
   cursor: move; }
   .card p {
-    color: #fff; }
+    color: #fff;
+    font-size: 14px;
+    font-family: "PT Mono", monospace;
+    font-weight: 500; }
   .card:hover {
     box-shadow: 1px 3px 3px #444;
     transform: scale(1.01);
@@ -85,20 +118,8 @@ h1 {
     .card .glyphicon-remove:hover {
       color: #fff; }
 
-.glyphicon-plus {
-  font-size: 18px;
-  line-height: 18px;
-  margin-right: 10px;
-  float: left;
-  color: #fff;
-  transition: .2s; }
-
 .column-title {
-  text-align: center;
-  line-height: 45px;
-  background-color: #004966;
-  margin: 0;
-  font-size: 25px; }
+  margin: 0; }
 
 .column-list {
   list-style-type: none;
@@ -112,12 +133,17 @@ h1 {
   background-color: #00A4E5;
   opacity: .3; }
 
-.card-description {
-  font-size: 14px; }
+@media screen and (max-width: 480px) {
+  .col-s-2 {
+    width: 100%;
+    float: none; }
+  .column-list {
+    min-height: 20px; } }
 
-@media screen and (min-width: 480px) and (max-width: 768px) {
-  .column {
-    width: 50%;
-    float: left; } }
+@media screen and (min-width: 800px) {
+  .column .input-add {
+    width: 81%; }
+  .column-title {
+    font-size: 20px; } }
 
 /*# sourceMappingURL=style.css.map */
