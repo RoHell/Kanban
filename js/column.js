@@ -7,20 +7,22 @@ function Column(id, name) {
 
 	function createColumn() {
 		var $row = $('<div>').addClass('row')
-		var $column = $('<div>').addClass('column col-s-2 col-xs-6 col-sm-4 col-md-3 col-lg-2');
+		var $column = $('<div>').addClass('column');
 		var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
 		var $columnList = $('<ul>').addClass('column-list');
-		var $icnRemove = $('<span>').addClass('glyphicon glyphicon-remove');
-		var $inputAddDiv = $('<div>').addClass('input-add-div');
-		var $icnAdd = $('<span>').addClass('glyphicon glyphicon-ok');
-  		var $inputAdd = $('<input>').attr({type: 'textbox', value: '', placeholder: 'Type card description'}).addClass('input-add');
+		var $icnRemove = $('<span>').addClass('glyphicon glyphicon-remove'); // RoHell
+		var $inputAddDiv = $('<div>').addClass('input-add-div'); //RoHell
+		var $icnAdd = $('<span>').addClass('glyphicon glyphicon-ok add-card-ok'); // RoHell
+  		var $inputAdd = $('<input>').attr({type: 'textbox', value: '', placeholder: 'Type card description +Enter'}).addClass('input-add input-card'); //RoHell
 
 		$icnRemove.click(function() {
 			self.removeColumn();
 		});
 
 		$icnAdd.click(function() {
+
 			var cardName = $inputAdd.val();
+
 			$.ajax({
 				url: baseUrl + '/card',
 				method: 'POST',
@@ -33,7 +35,11 @@ function Column(id, name) {
 					self.addCard(card);
 				}
 			});
+
 			$inputAdd.val('');
+
+			return false;
+
 		});
 
 		$inputAddDiv.append($icnAdd)
@@ -48,6 +54,8 @@ function Column(id, name) {
 		return $column;
 	}
 }
+
+
 
 Column.prototype.addCard = function(card) {
 	this.$element.children('ul').append(card.$element);

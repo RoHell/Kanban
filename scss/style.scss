@@ -16,25 +16,37 @@ h1 {
   color: $darker-clr;
 }
 
-.board p {
+.board {
+  position: relative;
+  p {
   font-family: $card-font;
   text-align: center;
   font-size: 15px;
   color: $darker-clr;
+  }
 }
+
+.column-container {
+  overflow-y: auto;
+  width: calc(242px * 10);
+}
+
 
 .column {
   position: relative;
-  min-height: 50px;
-  top: 50px;
+  display: inline-block;
+  width: 210px;
   color: $white-clr;
   transition: .3s;
+  float: left;
+  margin: 30px 15px 0;
+
 
   .glyphicon-remove {
     position: absolute;
-    right: 15px;
+    right: 0px;
     cursor: pointer;
-    color: $dark-clr;
+    color: $grey-clr;
     padding: 2px;
     font-size: 12px;
     &:hover {
@@ -62,23 +74,31 @@ h1 {
   color: $white-clr;
   border: none;
   transition: .3s;
+  outline: none;
+  border-radius: $radius;
 }
 
 .new-column-btn {
   position: relative;
   @extend %flex-center;
-  height: 25px;
+  top: -4px;
+  height: 29px;
   width: 210px;
   background-color: $darker-clr;
   display: none;
+  border-bottom-left-radius: $radius;
+  border-bottom-right-radius: $radius;
 }
 
 .new-column-ok {
   @extend %ok-sign;
+  border-bottom-right-radius: $radius;
+  margin-top: 1px;
 }
 
 .new-column-input {
-    @extend %input-field;
+  @extend %input-field;
+  margin-top: 1px;
 }
 
 .card {
@@ -95,38 +115,6 @@ h1 {
     font-family: $card-font;
     font-weight: 500;
   }
-  // &:before {
-  //   position: absolute;
-  //   content: '';
-  //   bottom: 0;
-  //   width: 180px;
-  //   height: 3px;
-  //   box-shadow: 0 2px 2px #000;
-  //   opacity: .5;
-  //   z-index: -10;
-  //   right: 3px;
-  //   transform: rotateZ(1.3deg);
-  //   transform-origin: right bottom;
-  // }
-  // &:after {
-  //   position: absolute;
-  //   content: '';
-  //   bottom: 0;
-  //   width: 180px;
-  //   height: 3px;
-  //   box-shadow: 0 2px 2px #000;
-  //   opacity: .5;
-  //   z-index: -10;
-  //   left: 3px;
-  //   transform: rotateZ(-1.3deg);
-  //   transform-origin: left bottom;
-  // }
-  //   &:before {
-  //     @extend %card-selector-hover;
-  //   }
-  //   &:after {
-  //     @extend %card-selector-hover;
-  //   }
   &:hover {
     box-shadow: 1px 3px 3px #444;
     transform: scale(1.01);
@@ -154,7 +142,8 @@ h1 {
   list-style-type: none;
   padding-left: 0;
   margin-top: 5px;
-  min-height: 50vh;
+  height: calc(100vh - 306px);
+  overflow-x: auto;
 }
 
 .card-placeholder {
@@ -162,24 +151,4 @@ h1 {
   margin-top: 5px;
   background-color: $card-clr;
   opacity: .3;
-}
-
-@media screen and (max-width: 480px) {
-  .col-s-2 {
-    width: 100%;
-    float: none;
-  }
-  .column-list {
-    min-height: auto;
-  }
-}
-
-@media screen and (min-width: 800px) {
-  .column .input-add {
-    width: 81%;
-  }
-
-  .column-title {
-    font-size: 20px;
-  }
 }
