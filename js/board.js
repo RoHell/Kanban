@@ -26,11 +26,13 @@ $('.new-column-ok').click(function() {
 			  	board.addColumn(column);
 		}
 	});
+
+	if ($('.new-column-input').val() == false) {
+		alert('Please type column name');
+	}
 	
 	$('.new-column-btn').delay(1000).slideToggle();
 	$('.new-column-input').val('');
-
-	return false;
 
 });
 

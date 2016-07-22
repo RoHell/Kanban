@@ -67,7 +67,6 @@ h1 {
     color: #004966; }
 
 .column-container {
-  overflow-y: auto;
   width: calc(242px * 10); }
 
 .column {
@@ -77,7 +76,7 @@ h1 {
   color: #fff;
   transition: .3s;
   float: left;
-  margin: 30px 15px 0; }
+  margin: 70px 15px 0; }
   .column .glyphicon-remove {
     position: absolute;
     right: 0px;
@@ -150,7 +149,7 @@ h1 {
   list-style-type: none;
   padding-left: 0;
   margin-top: 5px;
-  height: calc(100vh - 306px);
+  height: calc(100vh - 347px);
   overflow-x: auto; }
 
 .card-placeholder {
@@ -158,5 +157,11 @@ h1 {
   margin-top: 5px;
   background-color: #00A4E5;
   opacity: .3; }
+
+.showcss {
+  display: block; }
+
+.hidecss {
+  display: none; }
 
 /*# sourceMappingURL=style.css.map */

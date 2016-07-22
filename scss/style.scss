@@ -27,7 +27,6 @@ h1 {
 }
 
 .column-container {
-  overflow-y: auto;
   width: calc(242px * 10);
 }
 
@@ -39,7 +38,7 @@ h1 {
   color: $white-clr;
   transition: .3s;
   float: left;
-  margin: 30px 15px 0;
+  margin: 70px 15px 0;
 
 
   .glyphicon-remove {
@@ -142,7 +141,7 @@ h1 {
   list-style-type: none;
   padding-left: 0;
   margin-top: 5px;
-  height: calc(100vh - 306px);
+  height: calc(100vh - 347px);
   overflow-x: auto;
 }
 
@@ -152,3 +151,6 @@ h1 {
   background-color: $card-clr;
   opacity: .3;
 }
+
+.showcss{ display:block;}
+.hidecss{ display:none;}
