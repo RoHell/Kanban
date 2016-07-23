@@ -38,7 +38,7 @@ h1 {
   color: $white-clr;
   transition: .3s;
   float: left;
-  margin: 70px 15px 0;
+  margin: 210px 15px 0;
 
 
   .glyphicon-remove {
@@ -141,8 +141,8 @@ h1 {
   list-style-type: none;
   padding-left: 0;
   margin-top: 5px;
-  height: calc(100vh - 347px);
-  overflow-x: auto;
+  height: calc(100vh - 313px);
+  overflow-y: auto;
 }
 
 .card-placeholder {
@@ -152,10 +152,11 @@ h1 {
   opacity: .3;
 }
 
-.showcss{
-  display: block;
+.top-title {
+  position: fixed;
+  left: calc(50% - 142px);
 }
 
-.hidecss{
-  display: none;
-}
+// .modal-footer .btn+.btn {
+//   display: none;
+// }

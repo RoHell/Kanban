@@ -12,6 +12,7 @@
 <body>
 
     <div id="board" class="board">
+    <div class="top-title">
         <h1>Kanbandilla</h1>
         <p>Organize your work like The Boss</p>
         <button class="create-column-btn">Add Column</button>
@@ -19,34 +20,21 @@
         	<span class="glyphicon glyphicon-ok new-column-ok"></span>
         	<input type="textbox" value="" id="inputNewColumn" class="input-add new-column-input" placeholder="Type column name + Enter">
         </div>
-            <div class="column-container"></div>
+    </div>    
+        <div class="column-container"></div>
     </div>
 
-    <!-- <div id="dialog-confirm" title="Remove column?">
-        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>
-            Removing column will be permanently delete its cards and cannot be recovered. Are you sure?
-        </p>
-    </div>  -->
-
-    
-    <!-- <input type="button" id ="btnTest" value="Test"/> -->
-        <div id="dialog" title="Alert message" style="display: none">
-            <div class="ui-dialog-content ui-widget-content">
-                <p>
-                    <span class="ui-icon ui-icon-alert" style="float: left; margin: 0"></span>
-                    <label id="lblMessage"></label>
-                </p>
-            </div>
-        </div>
-
-	
-	<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js""></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/jquery.confirm.js"></script>
     <script type="text/javascript" src="js/column.js"></script>
     <script type="text/javascript" src="js/card.js"></script>
     <script type="text/javascript" src="js/board.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
-    <script type="text/javascript" src="js/alert.js"></script>
+
+    
+</div>
+
 </body>
 </html>

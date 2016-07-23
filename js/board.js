@@ -15,6 +15,15 @@ $('.create-column-btn').click(function() {
 $('.new-column-ok').click(function() {
 	var columnName = $('.new-column-input').val();
 
+	// if (!$('.new-column-input').val()) {
+	// 	$.confirm({
+	// 		text: "Type column name",
+	// 		title: "Warning!",
+	// 	    confirmButton: "OK",
+	// 		confirm: function() {
+	// 		}
+	// 	});
+	// }
 	$.ajax({
 		url: baseUrl + '/column',
 		method: 'POST',
@@ -26,12 +35,8 @@ $('.new-column-ok').click(function() {
 			  	board.addColumn(column);
 		}
 	});
-
-	if ($('.new-column-input').val() == false) {
-		alert('Please type column name');
-	}
 	
-	$('.new-column-btn').delay(1000).slideToggle();
+	$('.new-column-btn').delay(500).slideToggle();
 	$('.new-column-input').val('');
 
 });
