@@ -37,12 +37,12 @@ function Column(id, name) {
 		// 	// alert('Remove column and all its cards permanently?');
 		// });
 
-		$($icnRemove).click(function(){
+		$icnRemove.click(function(){
 		  	ShowCustomDialog();
 		});
 
 		function ShowCustomDialog() {                
-		  ShowDialogBox('Warning','Record updated successfully.','Ok','', 'GoToAssetList',null);
+		  ShowDialogBox('Warning','Do You want to remove column and all its content?','Ok','No', 'GoToAssetList',null);
 		}
 		            
 		function ShowDialogBox(title, content, btn1text, btn2text, functionText, parameterList) {
@@ -72,22 +72,23 @@ function Column(id, name) {
 		    bgiframe: false,
 		    hide: { effect: 'scale', duration: 400 },
 
-		    buttons: [{
-		                text: btn1text,
-		                "class": btn1css,
-		                click: function () {
-		                                                            
-		                    $("#dialog").dialog('close');
-		                }
-		              },
+		    buttons: [
+		    	{
+		            text: btn1text,
+		            "class": btn1css,
+		            click: function () {
+		                                                        
+		                $("#dialog").dialog('close');
+	            	}
+	          	},
 
-		              {
-		                text: btn2text,
-		                "class": btn2css,
-		                click: function () {
-		                    $("#dialog").dialog('close');
-		                }
-		              }]
+	          	{
+		            text: btn2text,
+		            "class": btn2css,
+		            click: function () {
+		                $("#dialog").dialog('close');
+	            	}
+	        }]
 		  });
 		}
 
@@ -118,7 +119,7 @@ function Column(id, name) {
 				}
 			});
 
-		$('.input-card').val('');
+			$('.input-card').val('');
 
 		});
 
