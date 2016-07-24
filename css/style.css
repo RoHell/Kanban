@@ -118,11 +118,11 @@ h1 {
 
 .card {
   position: relative;
-  background-color: #00A4E5;
-  padding: 12px;
+  padding: 12px 32px 2px 12px;
   margin-top: 5px;
   box-shadow: 0 2px 2px #333;
-  cursor: move; }
+  cursor: move;
+  background: linear-gradient(to right, #00A4E5 93%, transparent 93%); }
   .card p {
     color: #fff;
     font-size: 14px;
@@ -134,7 +134,7 @@ h1 {
     transform-origin: top right; }
   .card .glyphicon-remove {
     position: absolute;
-    right: 0;
+    right: 16px;
     cursor: pointer;
     color: #006A94;
     padding: 2px;
@@ -146,10 +146,12 @@ h1 {
   margin: 0; }
 
 .column-list {
+  position: relative;
   list-style-type: none;
   padding-left: 0;
   margin-top: 5px;
   height: calc(100vh - 313px);
+  width: 226px;
   overflow-y: auto; }
 
 .card-placeholder {
@@ -161,5 +163,18 @@ h1 {
 .top-title {
   position: fixed;
   left: calc(50% - 142px); }
+
+.ps-container > .ps-scrollbar-y-rail {
+  opacity: 1;
+  background-color: #8ED0EA; }
+
+.ps-container.ps-active-y > .ps-scrollbar-y-rail {
+  display: block;
+  background-color: #8ED0EA;
+  opacity: 1; }
+
+.ps-container:hover > .ps-scrollbar-y-rail:hover {
+  background-color: #8ED0EA;
+  opacity: 1; }
 
 /*# sourceMappingURL=style.css.map */

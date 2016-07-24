@@ -102,12 +102,13 @@ h1 {
 
 .card {
   position: relative;
-  background-color: $card-clr;
-  padding: 12px;
+  // background-color: $card-clr;
+  padding: 12px 32px 2px 12px;
   margin-top: 5px;
   box-shadow: 0 2px 2px #333;
   // transition: .1s;
   cursor: move;
+  background: linear-gradient(to right, $card-clr 93% , transparent 93%);
   p {
     color: $white-clr;
     font-size: 14px;
@@ -121,7 +122,7 @@ h1 {
   }
   .glyphicon-remove {
     position: absolute;
-    right: 0;
+    right: 16px;
     cursor: pointer;
     color: $dark-clr;
     padding: 2px;
@@ -138,10 +139,12 @@ h1 {
 }
 
 .column-list {
+  position: relative;
   list-style-type: none;
   padding-left: 0;
   margin-top: 5px;
   height: calc(100vh - 313px);
+  width: 226px;
   overflow-y: auto;
 }
 
@@ -157,6 +160,18 @@ h1 {
   left: calc(50% - 142px);
 }
 
-// .modal-footer .btn+.btn {
-//   display: none;
-// }
+.ps-container > .ps-scrollbar-y-rail {
+  opacity: 1;
+  background-color: $bg-clr;
+}
+
+.ps-container.ps-active-y > .ps-scrollbar-y-rail {
+    display: block;
+    background-color: $bg-clr;
+    opacity: 1;
+}
+
+.ps-container:hover > .ps-scrollbar-y-rail:hover {
+    background-color: $bg-clr;
+    opacity: 1;
+}

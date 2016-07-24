@@ -9,12 +9,13 @@ function Column(id, name) {
 		var $row = $('<div>').addClass('row')
 		var $column = $('<div>').addClass('column');
 		var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
-		var $columnList = $('<ul>').addClass('column-list');
+		var $columnList = $('<ul>').addClass('column-list').attr('id', 'column-list');
 		var $icnRemove = $('<span>').addClass('glyphicon glyphicon-remove confirm'); // RoHell
 		var $inputAddDiv = $('<div>').addClass('input-add-div'); //RoHell
 		var $icnAdd = $('<span>').addClass('glyphicon glyphicon-ok add-card-ok'); // RoHell
   		var $inputAdd = $('<input>').attr({type: 'textbox', value: '', placeholder: 'Type card description + Enter'}).addClass('input-add input-card'); //RoHell
   		
+  		$('.column-list').perfectScrollbar();
 
 
 	$icnRemove.click(function(event){
