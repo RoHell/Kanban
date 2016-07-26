@@ -15,26 +15,40 @@ $('.create-column-btn').click(function() {
 $('.new-column-ok').click(function() {
 	var columnName = $('.new-column-input').val();
 
-	// if (!$('.new-column-input').val()) {
-	// 	$.confirm({
-	// 		text: "Type column name",
-	// 		title: "Warning!",
-	// 	    confirmButton: "OK",
-	// 		confirm: function() {
-	// 		}
-	// 	});
-	// }
-	$.ajax({
-		url: baseUrl + '/column',
-		method: 'POST',
-		data: {
-			name: columnName
-		},
-		success: function(response) {
-			var column = new Column(response.id, columnName);
-			  	board.addColumn(column);
-		}
-	});
+	if (!columnName) {
+		$.confirm({
+			title: "Warning!",
+			text: "Press 'Default' to leave default column name or Press 'Exit' and do nothing",
+		    confirmButton: "Default",
+		    cancelButton: "Exit",
+			confirm: function() {
+				$.ajax({
+					url: baseUrl + '/column',
+					method: 'POST',
+					data: {
+						name: columnName
+					},
+					success: function(response) {
+						var column = new Column(response.id, columnName);
+						board.addColumn(column);
+					}
+				});
+			}
+		});
+	} else {
+		$.ajax({
+			url: baseUrl + '/column',
+			method: 'POST',
+			data: {
+				name: columnName
+			},
+			success: function(response) {
+				var column = new Column(response.id, columnName);
+				board.addColumn(column);
+			}
+		});
+	}
+	
 	
 	$('.new-column-btn').delay(500).slideToggle();
 	$('.new-column-input').val('');

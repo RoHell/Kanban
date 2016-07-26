@@ -2,7 +2,7 @@ function Card(id, name) {
 	var self = this;
 
 	this.id = id;
-	this.name = name || 'Card Description';
+	this.name = name || '... Default card description...';
 	this.$element = addCard();
 
 	function addCard() {

@@ -2,21 +2,18 @@ function Column(id, name) {
 	var self = this;
 
 	this.id = id;
-	this.name = name || 'Column name';
+	this.name = name || '... Column ...';
 	this.$element = createColumn();
 
 	function createColumn() {
 		var $row = $('<div>').addClass('row')
 		var $column = $('<div>').addClass('column');
 		var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
-		var $columnList = $('<ul>').addClass('column-list').attr('id', 'column-list');
+		var $columnList = $('<ul>').addClass('column-list');
 		var $icnRemove = $('<span>').addClass('glyphicon glyphicon-remove confirm'); // RoHell
 		var $inputAddDiv = $('<div>').addClass('input-add-div'); //RoHell
 		var $icnAdd = $('<span>').addClass('glyphicon glyphicon-ok add-card-ok'); // RoHell
   		var $inputAdd = $('<input>').attr({type: 'textbox', value: '', placeholder: 'Type card description + Enter'}).addClass('input-add input-card'); //RoHell
-  		
-  		$('.column-list').perfectScrollbar();
-
 
 	$icnRemove.click(function(event){
 		console.log('event', event);
@@ -47,27 +44,47 @@ function Column(id, name) {
 
 		var cardName = $inputAdd.val();
 
-		// if (!cardName) {
-		// 	alert('Please type card descryption');
-		// }
+		if (!cardName) {
+			$.confirm({
+				title: "Warning!",
+				text: "Press 'Default' to leave default card description or Press 'Exit' and do nothing",
+			    confirmButton: "Default",
+			    cancelButton: "Exit",
+				confirm: function() {
+					$.ajax({
+						url: baseUrl + '/card',
+						method: 'POST',
+						data: {
+							name: cardName,
+							bootcamp_kanban_column_id: self.id
+						},
+						success: function(response) {
+							var card = new Card(response.id, cardName);
+							self.addCard(card);
+						}
+					});
+				}
+			});
+		} else {
+			$.ajax({
+				url: baseUrl + '/card',
+				method: 'POST',
+				data: {
+					name: cardName,
+					bootcamp_kanban_column_id: self.id
+				},
+				success: function(response) {
+					var card = new Card(response.id, cardName);
+					self.addCard(card);
+				}
+			});
+		}
+		
 
-		// $('.input-card').on('keyup', function(e) {
-		//     if (e.keyCode === 13) {
-		//         $icnAdd.click();
-		//     }
-		// });
-
-		$.ajax({
-			url: baseUrl + '/card',
-			method: 'POST',
-			data: {
-				name: cardName,
-				bootcamp_kanban_column_id: self.id
-			},
-			success: function(response) {
-				var card = new Card(response.id, cardName);
-				self.addCard(card);
-			}
+		$('.input-card').on('keyup', function(e) {
+		    if (e.keyCode === 13) {
+		        $icnAdd.click();
+		    }
 		});
 
 		$('.input-card').val('');
@@ -81,10 +98,11 @@ function Column(id, name) {
 		$column.append($columnTitle)
 				.append($icnRemove)
       			.append($inputAddDiv)
-				.append($columnList);	
+				.append($columnList);
 				
 		return $column;
 	}
+
 }
 
 Column.prototype.addCard = function(card) {
@@ -101,3 +119,8 @@ Column.prototype.removeColumn = function() {
 		}
 	});
 };
+
+
+// $(function(){
+
+// })

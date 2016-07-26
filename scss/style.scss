@@ -28,6 +28,7 @@ h1 {
 
 .column-container {
   width: calc(242px * 10);
+  padding-right: 15px;
 }
 
 
@@ -38,7 +39,7 @@ h1 {
   color: $white-clr;
   transition: .3s;
   float: left;
-  margin: 210px 15px 0;
+  margin: 210px 10px 0;
 
 
   .glyphicon-remove {
@@ -56,6 +57,7 @@ h1 {
   .input-add-div {
     height: 25px;
     width: 100%;
+    margin-bottom: 5px;
     background-color: $darker-clr;
   }
   .glyphicon-ok {
@@ -102,13 +104,13 @@ h1 {
 
 .card {
   position: relative;
-  // background-color: $card-clr;
-  padding: 12px 32px 2px 12px;
-  margin-top: 5px;
+  background-color: $card-clr;
+  padding: 12px 12px 2px 12px;
+  margin-bottom: 5px;
+  transform: scale(1);
   box-shadow: 0 2px 2px #333;
-  // transition: .1s;
   cursor: move;
-  background: linear-gradient(to right, $card-clr 93% , transparent 93%);
+  // width: 210px;
   p {
     color: $white-clr;
     font-size: 14px;
@@ -118,11 +120,11 @@ h1 {
   &:hover {
     box-shadow: 1px 3px 3px #444;
     transform: scale(1.01);
-    transform-origin: top right;
   }
+
   .glyphicon-remove {
     position: absolute;
-    right: 16px;
+    right: 0px;
     cursor: pointer;
     color: $dark-clr;
     padding: 2px;
@@ -139,17 +141,15 @@ h1 {
 }
 
 .column-list {
-  position: relative;
   list-style-type: none;
   padding-left: 0;
-  margin-top: 5px;
   height: calc(100vh - 313px);
-  width: 226px;
-  overflow-y: auto;
+  overflow-x: hidden;
+  overflow-y: auto;  
 }
 
 .card-placeholder {
-  height: 80px;
+  height: 60px;
   margin-top: 5px;
   background-color: $card-clr;
   opacity: .3;
@@ -160,18 +160,31 @@ h1 {
   left: calc(50% - 142px);
 }
 
-.ps-container > .ps-scrollbar-y-rail {
-  opacity: 1;
-  background-color: $bg-clr;
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(0, 106, 148, 0.8); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0, 106, 148, 0.4); 
 }
 
-.ps-container.ps-active-y > .ps-scrollbar-y-rail {
-    display: block;
-    background-color: $bg-clr;
-    opacity: 1;
-}
+// .create-column-btn .btn-primary {
+//   display: none;
+// }
 
-.ps-container:hover > .ps-scrollbar-y-rail:hover {
-    background-color: $bg-clr;
-    opacity: 1;
-}
+// .column:last-child {
+//   margin-right: 15px;
+// }
