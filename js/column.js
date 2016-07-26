@@ -5,8 +5,6 @@ function Column(id, name) {
 	this.name = name || '... Column ...';
 	this.$element = createColumn();
 
-	x = 0;
-
 	function createColumn() {
 		var $row = $('<div>').addClass('row')
 		var $column = $('<div>').addClass('column');
@@ -16,6 +14,21 @@ function Column(id, name) {
 		var $inputAddDiv = $('<div>').addClass('input-add-div'); //RoHell
 		var $icnAdd = $('<span>').addClass('glyphicon glyphicon-ok add-card-ok'); // RoHell
   		var $inputAdd = $('<input>').attr({type: 'textbox', value: '', placeholder: 'Type card description + Enter'}).addClass('input-add input-card'); //RoHell
+
+  		const columnContainer = document.querySelector('.column-container');
+		const columnsLength = columnContainer.querySelectorAll('.column').length;
+
+		if (columnsLength >= 10) {
+			alert('delete sth');
+		}
+
+		$inputAdd.on('keyup', function(e) {
+		    if (e.keyCode === 13) {
+		        $icnAdd.click();
+		    }
+		});
+
+		
 
 	$icnRemove.click(function(event){
 		console.log('event', event);
@@ -44,8 +57,7 @@ function Column(id, name) {
 
 	$icnAdd.click(function() {
 
-		var cardName = $inputAdd.val();
-		var x = 0;
+		var cardName = $inputAdd.val();		
 
 		if (!cardName) {
 			$.confirm({
@@ -82,13 +94,6 @@ function Column(id, name) {
 				}
 			});
 		}
-		
-
-		$('.input-card').on('keyup', function(e) {
-		    if (e.keyCode === 13) {
-		        $icnAdd.click();
-		    }
-		});
 
 		$('.input-card').val('');
 
@@ -97,7 +102,7 @@ function Column(id, name) {
 		$inputAddDiv.append($icnAdd)
               	.append($inputAdd);
 
-		$row.append($column);
+		// $row.append($column);
 		$column.append($columnTitle)
 				.append($icnRemove)
       			.append($inputAddDiv)
@@ -122,3 +127,4 @@ Column.prototype.removeColumn = function() {
 		}
 	});
 };
+

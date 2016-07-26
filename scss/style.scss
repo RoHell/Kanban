@@ -27,8 +27,7 @@ h1 {
 }
 
 .column-container {
-  width: calc(242px * 10);
-  padding-right: 15px;
+  width: calc(230px * 10);
 }
 
 
@@ -39,16 +38,21 @@ h1 {
   color: $white-clr;
   transition: .3s;
   float: left;
-  margin: 210px 10px 0;
+  margin-top: 210px;
+  padding-right: 10px; 
+  &:first-child {
+    padding-left: 10px;
+    width: 220px;
+  }
 
 
   .glyphicon-remove {
     position: absolute;
-    right: 0px;
+    right: 2px;
     cursor: pointer;
     color: $grey-clr;
-    padding: 2px;
     font-size: 12px;
+      padding-right: 10px;
     &:hover {
       color: $white-clr;
     }
@@ -162,7 +166,7 @@ h1 {
 
 ::-webkit-scrollbar {
     width: 6px;
-    height: 6px;
+    height: 10px;
 }
  
 ::-webkit-scrollbar-track {
