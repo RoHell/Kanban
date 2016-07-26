@@ -5,6 +5,8 @@ function Column(id, name) {
 	this.name = name || '... Column ...';
 	this.$element = createColumn();
 
+	x = 0;
+
 	function createColumn() {
 		var $row = $('<div>').addClass('row')
 		var $column = $('<div>').addClass('column');
@@ -43,6 +45,7 @@ function Column(id, name) {
 	$icnAdd.click(function() {
 
 		var cardName = $inputAdd.val();
+		var x = 0;
 
 		if (!cardName) {
 			$.confirm({
@@ -119,8 +122,3 @@ Column.prototype.removeColumn = function() {
 		}
 	});
 };
-
-
-// $(function(){
-
-// })
