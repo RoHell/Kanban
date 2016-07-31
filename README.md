@@ -1,7 +1,8 @@
-
-
 # KanBan table
 Project presents kanban table for organising your work. It's trello like functionality.
+
+![Kanban table](http://i.imgur.com/NQXaQnw.png?1)
+
 ## Installation
 Clone the repo: git clone https://github.com/RoHell/Kanban.git.
 ## Usage
