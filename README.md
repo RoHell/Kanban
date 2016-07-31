@@ -5,7 +5,8 @@ Project presents kanban table for organising your work. Simillar to trello table
 
 ## Installation
 1. Clone the repo: `git clone https://github.com/RoHell/Kanban.git`
-2. Run `npm install` to download dependencies (grunt).
+2. Run `npm install` to download dependencies (grunt)
+
 ## Usage
 Create column for your tasks and pin some cards to it. Drag and drop functionality.
 ## To Do
