@@ -10,7 +10,7 @@ Project presents kanban table for organising your work. Simillar to trello table
 Create column for your tasks and pin some cards to it. Drag and drop functionality.
 ## To Do
 - Fit `placeholder` height to dragged element height
-- New column button behind last column
+- New column button behind last column.
 ## Contributing
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
