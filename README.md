@@ -4,7 +4,8 @@ Project presents kanban table for organising your work. It's trello like functio
 ![Kanban table](http://i.imgur.com/NQXaQnw.png?1)
 
 ## Installation
-Clone the repo: `git clone https://github.com/RoHell/Kanban.git`
+- Clone the repo: `git clone https://github.com/RoHell/Kanban.git`
+- Run ```npm install``` to download dependencies (grunt)
 ## Usage
 Create column for your tasks and pin some cards to it. Drag and drop functionality.
 ## Contributing
@@ -13,3 +14,8 @@ Create column for your tasks and pin some cards to it. Drag and drop functionali
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
+
+- Run ```npm install``` to download dependencies (gulp)
+- Run ```open index.html``` for Mac or ```start index.html``` for Win to see JS app
+- Delete file **css/item-list.css** and run ```gulp watch```  
+- Check CSS folder for Sass file being compiled to CSS
