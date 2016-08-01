@@ -1,4 +1,4 @@
-# KanBan table [!Demo](http://codepen.io/RoHell/full/dXJqAx)
+# KanBan table [Demo](http://codepen.io/RoHell/full/dXJqAx)
 Project presents kanban table for organising your work. Simillar to trello table.
 
 ![Kanban table](http://i.imgur.com/NQXaQnw.png?1)
