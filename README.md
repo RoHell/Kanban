@@ -1,4 +1,4 @@
-# KanBan table
+# KanBan table [!Demo](http://codepen.io/RoHell/full/dXJqAx)
 Project presents kanban table for organising your work. Simillar to trello table.
 
 ![Kanban table](http://i.imgur.com/NQXaQnw.png?1)
@@ -9,9 +9,6 @@ Project presents kanban table for organising your work. Simillar to trello table
 
 ## Usage
 Create column for your tasks and pin some cards to it. Drag and drop functionality.
-
-## Demo
-http://codepen.io/RoHell/full/dXJqAx
 
 ## To Do
 1. Fit `placeholder` height to dragged element height
