@@ -8,7 +8,6 @@ function Card(id, name) {
 	function addCard() {
 		var $card = $('<li>').addClass('card');
 		var $cardDescription = $('<p>').addClass('card-description').text(self.name);
-
 		var $icnRemove = $('<span>').addClass('glyphicon glyphicon-remove');
 
 		$icnRemove.click(function() {

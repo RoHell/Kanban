@@ -13,74 +13,59 @@ function Column(id, name) {
 		var $icnRemove = $('<span>').addClass('glyphicon glyphicon-remove confirm'); // RoHell
 		var $inputAddDiv = $('<div>').addClass('input-add-div'); //RoHell
 		var $icnAdd = $('<span>').addClass('glyphicon glyphicon-ok add-card-ok'); // RoHell
-  		var $inputAdd = $('<input>').attr({type: 'textbox', value: '', placeholder: 'Type card description + Enter'}).addClass('input-add input-card'); //RoHell
+		var $inputAdd = $('<input>').attr({type: 'textbox', value: '', placeholder: 'Type card description + Enter'}).addClass('input-add input-card'); //RoHell
 
-  		const columnContainer = document.querySelector('.column-container');
-		const columnsLength = columnContainer.querySelectorAll('.column').length;
+		var columnName = $('.new-column-input').val();
+		var columnContainer = document.querySelector('.column-container');
+		var columnsLength = columnContainer.querySelectorAll('.column').length;
 
-		if (columnsLength >= 10) {
-			alert('delete sth');
+		if (columnsLength > 9) {
+			$.alert({
+				icon: 'glyphicon glyphicon-exclamation-sign',
+				title: "Max column nr is 10!",
+				content: "Please delete any column to create the new one.",
+				confirmButton: 'OK',
+				closeIcon: true,
+				closeIconClass: 'glyphicon glyphicon-remove',
+				confirm: function() {
+					self.removeColumn();
+				}
+			});
 		}
 
 		$inputAdd.on('keyup', function(e) {
-		    if (e.keyCode === 13) {
-		        $icnAdd.click();
-		    }
+			if (e.keyCode === 13) {
+				$icnAdd.click();
+			}
 		});
 
 		
 
 	$icnRemove.click(function(event){
-		console.log('event', event);
 		var resulttt = event.currentTarget.parentNode.querySelector('.column-list');
-		console.log('resulttt', resulttt);
-		// resultttt jest naszym UL
 		var listElementsPresent = resulttt.querySelector('li');
 		if (!listElementsPresent) {
-			console.log('uciekam z funkcji, nic nie robie');
 			return self.removeColumn();
 		}
 		$.confirm({
-			text: "This column contains Cards. Are you sure?",
+			icon: 'glyphicon glyphicon-warning-sign',
 			title: "Warning!",
-		    confirmButton: "Yes, Remove It",
-		    cancelButton: "No, Not Yet",
+			content: "This column contains Cards. Are you sure?",
+			confirmButton: 'Yes, Remove It',
+			cancelButton: 'No, Leave It!',
+			closeIcon: true,
+			closeIconClass: 'glyphicon glyphicon-remove',
 			confirm: function() {
-				console.log('confirmed');
 				self.removeColumn();
 			},
 			cancel: function() {
-			console.log('cancelled');
 			}
 		});
 	});
 
 	$icnAdd.click(function() {
-
-		var cardName = $inputAdd.val();		
-
-		if (!cardName) {
-			$.confirm({
-				title: "Warning!",
-				text: "Press 'Default' to leave default card description or Press 'Exit' and do nothing",
-			    confirmButton: "Default",
-			    cancelButton: "Exit",
-				confirm: function() {
-					$.ajax({
-						url: baseUrl + '/card',
-						method: 'POST',
-						data: {
-							name: cardName,
-							bootcamp_kanban_column_id: self.id
-						},
-						success: function(response) {
-							var card = new Card(response.id, cardName);
-							self.addCard(card);
-						}
-					});
-				}
-			});
-		} else {
+		var cardName = $inputAdd.val();
+		function ajaxCardName() {
 			$.ajax({
 				url: baseUrl + '/card',
 				method: 'POST',
@@ -95,17 +80,34 @@ function Column(id, name) {
 			});
 		}
 
+		if (!cardName) {
+			$.confirm({
+				icon: 'glyphicon glyphicon-warning-sign',
+				title: "Type card description!",
+				content: "Type some description or leave it default",
+				confirmButton: "Default",
+				cancelButton: "Let me type",
+				closeIcon: true,
+				closeIconClass: 'glyphicon glyphicon-remove',
+				confirm: function() {
+					ajaxCardName();
+				}
+			});
+		}
+		else {
+			ajaxCardName();
+		}
+
 		$('.input-card').val('');
 
 	});
 
 		$inputAddDiv.append($icnAdd)
-              	.append($inputAdd);
+			  	.append($inputAdd);
 
-		// $row.append($column);
 		$column.append($columnTitle)
 				.append($icnRemove)
-      			.append($inputAddDiv)
+				.append($inputAddDiv)
 				.append($columnList);
 				
 		return $column;

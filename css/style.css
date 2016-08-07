@@ -83,11 +83,12 @@ h1 {
     width: 220px; }
   .column .glyphicon-remove {
     position: absolute;
-    right: 2px;
     cursor: pointer;
+    right: 0;
     color: #B9BFC2;
     font-size: 12px;
-    padding-right: 10px; }
+    padding-right: 13px;
+    padding-top: 2px; }
     .column .glyphicon-remove:hover {
       color: #fff; }
   .column .input-add-div {
@@ -184,5 +185,11 @@ h1 {
 
 ::-webkit-scrollbar-thumb:window-inactive {
   background: rgba(0, 106, 148, 0.4); }
+
+.glyphicon-warning-sign {
+  color: orange; }
+
+.glyphicon-exclamation-sign {
+  color: red; }
 
 /*# sourceMappingURL=style.css.map */

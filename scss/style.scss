@@ -2,193 +2,194 @@
 @import "partials";
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-  font-family: $main-font;
-  background-color: $bg-clr;
+	font-family: $main-font;
+	background-color: $bg-clr;
 }
 
 h1 {
-  text-align: center;
-  font-family: $title-font;
-  color: $darker-clr;
+	text-align: center;
+	font-family: $title-font;
+	color: $darker-clr;
 }
 
 .board {
-  position: relative;
-  p {
-  font-family: $card-font;
-  text-align: center;
-  font-size: 15px;
-  color: $darker-clr;
-  }
+	position: relative;
+	p {
+	font-family: $card-font;
+	text-align: center;
+	font-size: 15px;
+	color: $darker-clr;
+	}
 }
 
 .column-container {
-  width: calc(230px * 10);
+	width: calc(230px * 10);
 }
 
 
 .column {
-  position: relative;
-  display: inline-block;
-  width: 210px;
-  color: $white-clr;
-  transition: .3s;
-  float: left;
-  margin-top: 210px;
-  padding-right: 10px; 
-  &:first-child {
-    padding-left: 10px;
-    width: 220px;
-  }
+	position: relative;
+	display: inline-block;
+	width: 210px;
+	color: $white-clr;
+	transition: .3s;
+	float: left;
+	margin-top: 210px;
+	padding-right: 10px; 
+	&:first-child {
+		padding-left: 10px;
+		width: 220px;
+	}
 
 
-  .glyphicon-remove {
-    position: absolute;
-    right: 2px;
-    cursor: pointer;
-    color: $grey-clr;
-    font-size: 12px;
-      padding-right: 10px;
-    &:hover {
-      color: $white-clr;
-    }
-  }
+	.glyphicon-remove {
+		position: absolute;
+		cursor: pointer;
+		right: 0;
+		color: $grey-clr;
+		font-size: 12px;
+		padding-right: 13px;
+		padding-top: 2px;
+		&:hover {
+			color: $white-clr;
+		}
+	}
 
-  .input-add-div {
-    height: 25px;
-    width: 100%;
-    margin-bottom: 5px;
-    background-color: $darker-clr;
-  }
-  .glyphicon-ok {
-    @extend %ok-sign;
-  }
-  .input-add {
-    @extend %input-field;
-  }
+	.input-add-div {
+		height: 25px;
+		width: 100%;
+		margin-bottom: 5px;
+		background-color: $darker-clr;
+	}
+	.glyphicon-ok {
+		@extend %ok-sign;
+	}
+	.input-add {
+		@extend %input-field;
+	}
 }
 
 .create-column-btn {
-  @extend %flex-center;
-  @extend %title;
-  min-width: 210px;
-  color: $white-clr;
-  border: none;
-  transition: .3s;
-  outline: none;
-  border-radius: $radius;
+	@extend %flex-center;
+	@extend %title;
+	min-width: 210px;
+	color: $white-clr;
+	border: none;
+	transition: .3s;
+	outline: none;
+	border-radius: $radius;
 }
 
 .new-column-btn {
-  position: relative;
-  @extend %flex-center;
-  top: -4px;
-  height: 29px;
-  width: 210px;
-  background-color: $darker-clr;
-  display: none;
-  border-bottom-left-radius: $radius;
-  border-bottom-right-radius: $radius;
+	position: relative;
+	@extend %flex-center;
+	top: -4px;
+	height: 29px;
+	width: 210px;
+	background-color: $darker-clr;
+	display: none;
+	border-bottom-left-radius: $radius;
+	border-bottom-right-radius: $radius;
 }
 
 .new-column-ok {
-  @extend %ok-sign;
-  border-bottom-right-radius: $radius;
-  margin-top: 1px;
+	@extend %ok-sign;
+	border-bottom-right-radius: $radius;
+	margin-top: 1px;
 }
 
 .new-column-input {
-  @extend %input-field;
-  margin-top: 1px;
+	@extend %input-field;
+	margin-top: 1px;
 }
 
 .card {
-  position: relative;
-  background-color: $card-clr;
-  padding: 12px 12px 2px 12px;
-  margin-bottom: 5px;
-  transform: scale(1);
-  box-shadow: 0 2px 2px #333;
-  cursor: move;
-  // width: 210px;
-  p {
-    color: $white-clr;
-    font-size: 14px;
-    font-family: $card-font;
-    font-weight: 500;
-  }
-  &:hover {
-    box-shadow: 1px 3px 3px #444;
-    transform: scale(1.01);
-  }
+	position: relative;
+	background-color: $card-clr;
+	padding: 12px 12px 2px 12px;
+	margin-bottom: 5px;
+	transform: scale(1);
+	box-shadow: 0 2px 2px #333;
+	cursor: move;
+	// width: 210px;
+	p {
+		color: $white-clr;
+		font-size: 14px;
+		font-family: $card-font;
+		font-weight: 500;
+	}
+	&:hover {
+		box-shadow: 1px 3px 3px #444;
+		transform: scale(1.01);
+	}
 
-  .glyphicon-remove {
-    position: absolute;
-    right: 0px;
-    cursor: pointer;
-    color: $dark-clr;
-    padding: 2px;
-    font-size: 12px;
-    &:hover {
-      color: $white-clr;
-    }
-  }
+	.glyphicon-remove {
+		position: absolute;
+		right: 0px;
+		cursor: pointer;
+		color: $dark-clr;
+		padding: 2px;
+		font-size: 12px;
+		&:hover {
+			color: $white-clr;
+		}
+	}
 }
 
-.column-title  {
-  @extend %title;
-  margin: 0;
+.column-title   {
+	@extend %title;
+	margin: 0;
 }
 
 .column-list {
-  list-style-type: none;
-  padding-left: 0;
-  height: calc(100vh - 313px);
-  overflow-x: hidden;
-  overflow-y: auto;  
+	list-style-type: none;
+	padding-left: 0;
+	height: calc(100vh - 313px);
+	overflow-x: hidden;
+	overflow-y: auto;   
 }
 
 .card-placeholder {
-  height: 60px;
-  margin-top: 5px;
-  background-color: $card-clr;
-  opacity: .3;
+	height: 60px;
+	margin-top: 5px;
+	background-color: $card-clr;
+	opacity: .3;
 }
 
 .top-title {
-  position: fixed;
-  left: calc(50% - 142px);
+	position: fixed;
+	left: calc(50% - 142px);
 }
 
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 10px;
+	width: 6px;
+	height: 10px;
 }
  
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); 
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); 
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
 }
  
 ::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: rgba(0, 106, 148, 0.8); 
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); 
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	background: rgba(0, 106, 148, 0.8); 
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); 
 }
 ::-webkit-scrollbar-thumb:window-inactive {
-  background: rgba(0, 106, 148, 0.4); 
+	background: rgba(0, 106, 148, 0.4); 
 }
 
-// .create-column-btn .btn-primary {
-//   display: none;
-// }
+.glyphicon-warning-sign {
+	color: $warning-clr;
+}
 
-// .column:last-child {
-//   margin-right: 15px;
-// }
+.glyphicon-exclamation-sign {
+	color: $exclamation-clr;
+}
